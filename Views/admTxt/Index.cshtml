@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<div class="page page-forms-wizard">
+
+    <div class="pageheader">
+        @if (Request.QueryString["title"] == "missao")
+        {
+            <h2>Missão <span>// INSTITUCIONAL // EMPRESA</span></h2>
+        }
+        else if (Request.QueryString["title"] == "visao")
+        {
+            <h2>Visão <span>// INSTITUCIONAL // EMPRESA</span></h2>
+        }
+        else
+        {
+            <h2>@Request.QueryString["page"].ToUpper().Replace("-", " // ")</h2>
+        }
+
+    </div>
+
+    <p>@TempData["acaotitle"]</p>
+
+    <!-- page content -->
+    <div class="pagecontent">
+        <div class="form-container">
+        @using (Html.BeginForm("Index", "admTxt", new { page = Request.QueryString["page"], title = @Request.QueryString["title"] }, FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="texto">Texto: </label>
+                    <textarea class="form-control" rows="4" id="texto" name="txt1" placeholder="Digite o texto aqui.">@ViewBag.txt1</textarea>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-cyan btn-ef btn-ef-5 btn-ef-5b mb-10">
+                <i class="fa fa-floppy-o"></i>
+                <span>Salvar</span>
+            </button>
+        }
+        </div>
+    </div>
+    <!-- /page content -->
+
+</div>
+

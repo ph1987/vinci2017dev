@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vinci_novoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="vinci_novoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cards" EntityType="vinci_novoModel.cards" />
+    <EntitySet Name="categories" EntityType="vinci_novoModel.categories" />
+    <EntitySet Name="files" EntityType="vinci_novoModel.files" />
+    <EntitySet Name="risks" EntityType="vinci_novoModel.risks" />
+    <EntitySet Name="users" EntityType="vinci_novoModel.users" />
+    <EntitySet Name="numbers" EntityType="vinci_novoModel.numbers" />
+    <EntitySet Name="families" EntityType="vinci_novoModel.families" />
+    <EntitySet Name="institutions" EntityType="vinci_novoModel.institutions" />
+    <EntitySet Name="highlights" EntityType="vinci_novoModel.highlights" />
+    <EntitySet Name="txts" EntityType="vinci_novoModel.txts" />
+    <EntitySet Name="valors" EntityType="vinci_novoModel.valors" />
+    <EntitySet Name="partners" EntityType="vinci_novoModel.partners" />
+    <EntitySet Name="news" EntityType="vinci_novoModel.news" />
+  </EntityContainer>
+  <EntityType Name="cards">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="tituloen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="imagem" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ativo" Type="Int32" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ordem" Type="Int32" />
+  </EntityType>
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="tituloen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ativo" Type="Int32" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ordem" Type="Int32" />
+  </EntityType>
+  <EntityType Name="files">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="filename" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="content_id" Type="Int32" Nullable="false" />
+    <Property Name="reference" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="updated" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="position" Type="Int32" />
+  </EntityType>
+  <EntityType Name="risks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="titleen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="updated" Type="DateTime" Precision="3" />
+    <Property Name="position" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="updated" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="numbers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prefix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bigNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="suffix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="txt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="updated" Type="DateTime" Precision="3" />
+    <Property Name="position" Type="Int32" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="page" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bigNumberBold" Type="Int32" />
+    <Property Name="suffixBold" Type="Int32" />
+    <Property Name="txtBold" Type="Int32" />
+  </EntityType>
+  <EntityType Name="families">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="perfil_id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="regulamento" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="factsheet" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="lamina_info_essenciais" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="prospecto" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="updated" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="institutions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="section" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="position" Type="Int32" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="updated" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="highlights">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="txt1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt1_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt2_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt3_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="video" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="updated" Type="DateTime" Precision="3" />
+    <Property Name="position" Type="Int32" />
+    <Property Name="page" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="opt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="txt4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt4_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="txts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="txt1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt1_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="page" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="valors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="txt1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt1_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="position" Type="Int32" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="updated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="partners">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="txt1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt1_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt2_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt3_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="updated" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="position" Type="Int32" />
+    <Property Name="page" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="news">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="txt1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt1_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="txt2_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="videoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="created" Type="DateTime" Precision="3" />
+    <Property Name="updated" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="position" Type="Int32" />
+    <Property Name="highlight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

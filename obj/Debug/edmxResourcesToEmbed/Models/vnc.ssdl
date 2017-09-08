@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vinciModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'vinci.dbo.categorias' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'vinci.dbo.Consulta' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Consulta">
+          <Property Name="id" Type="float" />
+          <Property Name="categoria" Type="nvarchar(max)" />
+          <Property Name="titulo" Type="nvarchar(max)" />
+          <Property Name="texto" Type="nvarchar(max)" />
+          <Property Name="ativo" Type="float" />
+          <Property Name="titulo2" Type="nvarchar(max)" />
+          <Property Name="texto2" Type="nvarchar(max)" />
+          <Property Name="img" Type="nvarchar(max)" />
+          <Property Name="doc" Type="nvarchar(max)" />
+          <Property Name="doc2" Type="nvarchar(max)" />
+          <Property Name="rodape" Type="nvarchar(max)" />
+          <Property Name="rodape_en" Type="nvarchar(max)" />
+          <Property Name="doc_rodape" Type="nvarchar(max)" />
+          <Property Name="doc_rodape_en" Type="nvarchar(max)" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'vinci.dbo.Consulta$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Consulta$">
+          <Property Name="id" Type="float" />
+          <Property Name="categoria" Type="nvarchar(max)" />
+          <Property Name="titulo" Type="nvarchar(max)" />
+          <Property Name="texto" Type="nvarchar(max)" />
+          <Property Name="ativo" Type="float" />
+          <Property Name="titulo2" Type="nvarchar(max)" />
+          <Property Name="texto2" Type="nvarchar(max)" />
+          <Property Name="img" Type="nvarchar(max)" />
+          <Property Name="doc" Type="nvarchar(max)" />
+          <Property Name="doc2" Type="nvarchar(max)" />
+          <Property Name="rodape" Type="nvarchar(max)" />
+          <Property Name="rodape_en" Type="nvarchar(max)" />
+          <Property Name="doc_rodape" Type="nvarchar(max)" />
+          <Property Name="doc_rodape_en" Type="nvarchar(max)" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'vinci.dbo.fundos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <Function Name="banners_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="banners_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="subtitulo" Type="text" Mode="In" />
+    <Parameter Name="img" Type="nvarchar" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="posicao" Type="int" Mode="In" />
+    <Parameter Name="subtitulo2" Type="text" Mode="In" />
+    <Parameter Name="img2" Type="nvarchar" Mode="In" />
+    <Parameter Name="link" Type="text" Mode="In" />
+    <Parameter Name="titulo" Type="text" Mode="In" />
+    <Parameter Name="titulo2" Type="text" Mode="In" />
+    <Parameter Name="info" Type="text" Mode="In" />
+    <Parameter Name="info2" Type="text" Mode="In" />
+  </Function>
+  <Function Name="banners_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="subtitulo" Type="text" Mode="In" />
+    <Parameter Name="img" Type="nvarchar" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="posicao" Type="int" Mode="In" />
+    <Parameter Name="subtitulo2" Type="text" Mode="In" />
+    <Parameter Name="img2" Type="nvarchar" Mode="In" />
+    <Parameter Name="link" Type="text" Mode="In" />
+    <Parameter Name="titulo" Type="text" Mode="In" />
+    <Parameter Name="titulo2" Type="text" Mode="In" />
+    <Parameter Name="info" Type="text" Mode="In" />
+    <Parameter Name="info2" Type="text" Mode="In" />
+  </Function>
+  <Function Name="banners_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="banners_lista_completa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="banners_lista1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="busca" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="parametro" Type="nvarchar" Mode="In" />
+    <Parameter Name="parametro2" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="busca_en" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="parametro" Type="nvarchar" Mode="In" />
+    <Parameter Name="parametro2" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="categoria_rpps_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="categoria_rpps_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="title" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="title_en" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc_en" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="categoria_rpps_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="title" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="title_en" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc_en" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="categoria_rpps_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="categoria_rpps_lista_edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="categorias_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="categorias_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="nome" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="categorias_informacoes_cvm_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="categorias_informacoes_cvm_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="title" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="title_en" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc_en" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="categorias_informacoes_cvm_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="title" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="title_en" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc_en" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="categorias_informacoes_cvm_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="categorias_informacoes_cvm_lista_edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="categorias_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nome" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="categorias_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="categorias_lista_edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="contato_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nome" Type="nvarchar" Mode="In" />
+    <Parameter Name="empresa" Type="nvarchar" Mode="In" />
+    <Parameter Name="tel" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="endereco" Type="nvarchar" Mode="In" />
+    <Parameter Name="cidade" Type="nvarchar" Mode="In" />
+    <Parameter Name="estado" Type="nvarchar" Mode="In" />
+    <Parameter Name="pais" Type="nvarchar" Mode="In" />
+    <Parameter Name="cep" Type="nvarchar" Mode="In" />
+    <Parameter Name="assunto" Type="nvarchar" Mode="In" />
+    <Parameter Name="mensagem" Type="text" Mode="In" />
+    <Parameter Name="datacriacao" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="contatos_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo2" Type="text" Mode="In" />
+    <Parameter Name="texto_superior" Type="text" Mode="In" />
+    <Parameter Name="texto_superior2" Type="text" Mode="In" />
+    <Parameter Name="texto_inferior" Type="text" Mode="In" />
+    <Parameter Name="texto_inferior2" Type="text" Mode="In" />
+    <Parameter Name="texto_lateral" Type="text" Mode="In" />
+    <Parameter Name="texto_lateral2" Type="text" Mode="In" />
+    <Parameter Name="img" Type="text" Mode="In" />
+  </Function>
+  <Function Name="contatos_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="contatos_lista1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="conteudo_lateral_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="conteudo_lateral_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="link" Type="text" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="titulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto2" Type="text" Mode="In" />
+    <Parameter Name="link_en" Type="text" Mode="In" />
+  </Function>
+  <Function Name="conteudo_lateral_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="link" Type="text" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="created" Type="datetime" Mode="In" />
+    <Parameter Name="titulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto2" Type="text" Mode="In" />
+    <Parameter Name="link_en" Type="text" Mode="In" />
+  </Function>
+  <Function Name="conteudo_lateral_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="conteudo_lateral_lista_completa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="conteudo_lateral_lista1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="conteudo_lateral_random" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="docs_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="docs_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc1" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc2" Type="nvarchar" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="conteudo_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="docs_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc1" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc2" Type="nvarchar" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="conteudo_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="docs_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="conteudo_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="docs_lista1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="empresa_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="empresa_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="texto2" Type="text" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="img" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc2" Type="nvarchar" Mode="In" />
+    <Parameter Name="data" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="empresa_editaimg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+    <Parameter Name="img" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="empresa_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="titulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto2" Type="text" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc2" Type="nvarchar" Mode="In" />
+    <Parameter Name="img" Type="nvarchar" Mode="In" />
+    <Parameter Name="data" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="empresa_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="empresa_lista1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="equipe_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="equipe_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="texto2" Type="text" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="ordem" Type="int" Mode="In" />
+  </Function>
+  <Function Name="equipe_editaimg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+    <Parameter Name="imgtopo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="equipe_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="titulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto2" Type="text" Mode="In" />
+    <Parameter Name="ordem" Type="int" Mode="In" />
+  </Function>
+  <Function Name="equipe_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="equipe_lista_ativos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="equipe_lista1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fundos_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fundos_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="nome" Type="nvarchar" Mode="In" />
+    <Parameter Name="perfil" Type="nvarchar" Mode="In" />
+    <Parameter Name="factsheet" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="prospecto" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="regulamento" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="subtitle" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="fundos_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nome" Type="nvarchar" Mode="In" />
+    <Parameter Name="perfil" Type="nvarchar" Mode="In" />
+    <Parameter Name="factsheet" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="prospecto" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="regulamento" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="categoria_id" Type="int" Mode="In" />
+    <Parameter Name="subtitle" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="fundos_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fundos_lista_all" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="informacoes_cvm_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="informacoes_cvm_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="title" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="title_en" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc_en" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="informacoes_cvm_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categorias_informacoes_cvm_id" Type="int" Mode="In" />
+    <Parameter Name="title" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="title_en" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc_en" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="informacoes_cvm_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="informacoes_cvm_lista_edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="informacoes_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="informacoes_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="pdf" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="informacoes_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="pdf" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="informacoes_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="informacoes_lista1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="lamina_doc_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc2" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="lamina_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="doc2" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="negocios_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="titulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto2" Type="text" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="img" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc2" Type="nvarchar" Mode="In" />
+    <Parameter Name="rodape" Type="text" Mode="In" />
+    <Parameter Name="rodape_en" Type="text" Mode="In" />
+    <Parameter Name="doc_rodape" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc_rodape_en" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="negocios_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="negocios_lista1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="parceiros_operacoes_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="parceiros_operacoes_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="img" Type="nvarchar" Mode="In" />
+    <Parameter Name="img2" Type="nvarchar" Mode="In" />
+    <Parameter Name="link" Type="text" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="subtitulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="subtitulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="texto2" Type="text" Mode="In" />
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+    <Parameter Name="data" Type="nvarchar" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="legenda" Type="nvarchar" Mode="In" />
+    <Parameter Name="url" Type="text" Mode="In" />
+  </Function>
+  <Function Name="parceiros_operacoes_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="img" Type="nvarchar" Mode="In" />
+    <Parameter Name="img2" Type="nvarchar" Mode="In" />
+    <Parameter Name="link" Type="text" Mode="In" />
+    <Parameter Name="titulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="titulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="subtitulo" Type="nvarchar" Mode="In" />
+    <Parameter Name="subtitulo2" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto" Type="text" Mode="In" />
+    <Parameter Name="texto2" Type="text" Mode="In" />
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+    <Parameter Name="data" Type="nvarchar" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="legenda" Type="nvarchar" Mode="In" />
+    <Parameter Name="url" Type="text" Mode="In" />
+  </Function>
+  <Function Name="parceiros_operacoes_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="parceiros_operacoes_lista1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="relacionamentos_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="relacionamentos_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="link" Type="nvarchar" Mode="In" />
+    <Parameter Name="conteudo_id" Type="int" Mode="In" />
+    <Parameter Name="secao" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="relacionamentos_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="conteudo_id" Type="int" Mode="In" />
+    <Parameter Name="secao" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="rpps_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="rpps_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="title" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="title_en" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc_en" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="rpps_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="categoria_rpps_id" Type="int" Mode="In" />
+    <Parameter Name="title" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc" Type="nvarchar" Mode="In" />
+    <Parameter Name="title_en" Type="nvarchar" Mode="In" />
+    <Parameter Name="doc_en" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="rpps_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="rpps_lista_edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usuario_deleta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usuario_edita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="nome" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usuario_edita_senha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usuario_insere" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nome" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usuario_insere_lamina" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nome" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="ativo" Type="int" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+    <Parameter Name="tipo_usuario" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usuario_lista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usuario_lista_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="usuario_lista1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="vinciModelStoreContainer" />
+</Schema>

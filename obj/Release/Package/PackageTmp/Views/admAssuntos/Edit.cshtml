@@ -1,0 +1,49 @@
+﻿@model vinci_novo.Models.assuntos
+@{
+    ViewBag.Title = "assuntos | Edit";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "admAssuntos", FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>assuntos</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.titulo)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.titulo, new { @class = "medium-input" })
+            @Html.ValidationMessageFor(model => model.titulo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tituloen)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.tituloen, new { @class = "medium-input" })
+            @Html.ValidationMessageFor(model => model.tituloen)
+        </div>
+
+        <div class="editor-field">
+            @if (Model.ativo == 1)
+            {
+                <label>@Html.RadioButtonFor(model => model.ativo, 0)Não exibir no site</label>
+                <label>@Html.RadioButtonFor(model => model.ativo, 1, new { @checked = "checked" })Exibir no site</label>
+            }
+            else
+            {
+                <label>@Html.RadioButtonFor(model => model.ativo, 0, new { @checked = "checked" })Não exibir no site</label>
+                <label>@Html.RadioButtonFor(model => model.ativo, 1)Exibir no site</label>
+            }
+        </div>
+
+        <p>
+            <input type="submit" value="Salvar" />
+        </p>
+
+    </fieldset>
+}
+
+

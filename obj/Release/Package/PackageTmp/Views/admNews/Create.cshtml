@@ -1,0 +1,100 @@
+﻿@model vinci_novo.Models.news
+@{
+    //vinci_novo.Models.vinci_novoEntities db = new vinci_novo.Models.vinci_novoEntities();
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+    //var catList = db.news.Select(m => m.category).Distinct();
+
+}
+
+@*<script>
+      $( function() {
+        var availableTags = [
+          @{
+              foreach (var o in catList)
+              {
+                  <text>"@o",</text>
+              }
+          }
+        ];
+          $("#categoria").autocomplete({
+          source: availableTags
+        });
+      } );
+</script>*@
+
+<div class="page page-forms-wizard">
+
+    <div class="pageheader">
+
+        <h2>Adicionar <span>// <a href="noticias-cadastradas.html">NOTÍCIAS</a></span></h2>
+
+    </div>
+
+    <!-- page content -->
+    <div class="pagecontent">
+        <div class="form-container">
+
+            @using (Html.BeginForm("Create", "admNews", FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+            {
+                <label class="checkbox checkbox-custom">
+                    <input type="checkbox" name="highlight"><i></i>
+                    Destaque
+                </label>
+                <hr class="line-dashed line-full">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="categoria">Categoria</label>
+                        <select name="category" id="categoria" class="form-control mb-10">
+                            @foreach (var c in ViewBag.categories)
+                            {
+                                <option value="@c.titulo">@c.titulo</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="texto1">Texto 1: </label>
+                        <input type="text" name="txt1" id="texto1" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="texto2">Texto 2: </label>
+                        <textarea class="form-control" name="txt2" rows="8" id="texto2" placeholder="Digite o texto aqui."></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="videourl">Video URL: </label>
+                        <input type="text" name="videoUrl" dirname="videoUrl" id="videourl" class="form-control">
+                    </div>
+                </div>
+                <div class="fileupload-buttonbar ">
+                    <span class="btn btn-primary fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Adicionar PDF</span>
+                        <input type="file" name="files1" multiple>
+                    </span>
+                </div>
+                <div class="fileupload-buttonbar ">
+                    <span class="btn btn-slategray fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Adicionar imagem</span>
+                        <input type="file" name="files2" multiple>
+                    </span>
+                </div>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-cyan btn-ef btn-ef-5 btn-ef-5b mb-10">
+                    <i class="fa fa-floppy-o"></i>
+                    <span>Adicionar</span>
+                </button>
+            }
+        </div>
+    </div>
+    <!-- /page content -->
+
+</div>
+

@@ -1,0 +1,84 @@
+﻿@model vinci_novo.Models.chamadas
+@{
+    ViewBag.Title = "chamadas | Edit";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+@using (Html.BeginForm("Index", "admChamadas", FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>chamadas</legend>
+
+        <div class="editor-label">
+            assunto
+        </div>
+        <div class="editor-field">
+            <select name="assunto">
+                <option value="0">selecione um assunto</option>
+                @foreach (var a in ViewBag.assuntos)
+                {
+                    <option value="@a.id" @if (a.id == ViewBag.assunto) { Write("selected='selected'"); }>@a.titulo</option>
+                }
+            </select>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.titulo)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.titulo, new { @class = "medium-input" })
+            @Html.ValidationMessageFor(model => model.titulo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tituloen)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.tituloen, new { @class = "medium-input" })
+            @Html.ValidationMessageFor(model => model.tituloen)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.texto)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.texto, new { @class = "medium-input" })
+            @Html.ValidationMessageFor(model => model.texto)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.textoen)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.textoen, new { @class = "medium-input" })
+            @Html.ValidationMessageFor(model => model.textoen)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.link)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.link, new { @class = "medium-input" })
+            @Html.ValidationMessageFor(model => model.link)
+        </div>
+
+        <div class="editor-field">
+            @if (Model.ativo == 1)
+            {
+                <label>@Html.RadioButtonFor(model => model.ativo, 0)Não exibir no site</label>
+                <label>@Html.RadioButtonFor(model => model.ativo, 1, new { @checked = "checked" })Exibir no site</label>
+            }
+            else
+            {
+                <label>@Html.RadioButtonFor(model => model.ativo, 0, new { @checked = "checked" })Não exibir no site</label>
+                <label>@Html.RadioButtonFor(model => model.ativo, 1)Exibir no site</label>
+            }
+        </div>
+
+        <p>
+            <input type="submit" value="Salvar" />
+        </p>
+
+    </fieldset>
+}

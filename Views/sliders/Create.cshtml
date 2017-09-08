@@ -1,0 +1,65 @@
+﻿@model vinci_novo.Models.sliders
+
+@{
+    ViewBag.Title = "sliders | Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+@*
+    <div class="content-box">
+        <div class="content-box-header">
+            <h3>@Request.QueryString["s"]<span class="separa"></span><span>Adicionar</span></h3>
+            <span style="float:right; margin-top:15px;">@Html.ActionLink("<- Voltar", "Index", new { s = Request.QueryString["s"] })</span>
+        </div> <!-- /content-box -->
+
+        <div class="content-box-content">
+*@
+        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+        @using (Html.BeginForm("Create", "sliders", FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>sliders</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.titulo)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.titulo, new { @class = "medium-input" })
+                    @Html.ValidationMessageFor(model => model.titulo)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.tituloen)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.tituloen, new { @class = "medium-input" })
+                    @Html.ValidationMessageFor(model => model.tituloen)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.link)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.link, new { @class = "medium-input" })
+                    @Html.ValidationMessageFor(model => model.link)
+                </div>
+
+                <div class="editor-field">
+                    <label>@Html.RadioButtonFor(model => model.ativo, 0)Não exibir no site</label>
+                    <label>@Html.RadioButtonFor(model => model.ativo, 1, new { @checked = "checked" })Exibir no site</label>
+                </div>
+
+                <input type="file" name="file" id="file" />
+
+                <p>
+                    <input type="submit" value="Adicionar" />
+                </p>
+
+            </fieldset>
+        }
+@*
+        </div>
+    </div>
+*@

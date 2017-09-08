@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="vinciModelStoreContainer" CdmEntityContainer="vinciEntities">
+    <FunctionImportMapping FunctionImportName="banners_deleta" FunctionName="vinciModel.Store.banners_deleta" />
+    <FunctionImportMapping FunctionImportName="banners_edita" FunctionName="vinciModel.Store.banners_edita" />
+    <FunctionImportMapping FunctionImportName="banners_insere" FunctionName="vinciModel.Store.banners_insere" />
+    <FunctionImportMapping FunctionImportName="banners_lista" FunctionName="vinciModel.Store.banners_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.banners_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="subtitulo" ColumnName="subtitulo" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="posicao" ColumnName="posicao" />
+          <ScalarProperty Name="subtitulo2" ColumnName="subtitulo2" />
+          <ScalarProperty Name="img2" ColumnName="img2" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="info" ColumnName="info" />
+          <ScalarProperty Name="info2" ColumnName="info2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="banners_lista_completa" FunctionName="vinciModel.Store.banners_lista_completa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.banners_lista_completa_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="subtitulo" ColumnName="subtitulo" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="posicao" ColumnName="posicao" />
+          <ScalarProperty Name="subtitulo2" ColumnName="subtitulo2" />
+          <ScalarProperty Name="img2" ColumnName="img2" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="info" ColumnName="info" />
+          <ScalarProperty Name="info2" ColumnName="info2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="banners_lista1" FunctionName="vinciModel.Store.banners_lista1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.banners_lista1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="subtitulo" ColumnName="subtitulo" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="posicao" ColumnName="posicao" />
+          <ScalarProperty Name="subtitulo2" ColumnName="subtitulo2" />
+          <ScalarProperty Name="img2" ColumnName="img2" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="info" ColumnName="info" />
+          <ScalarProperty Name="info2" ColumnName="info2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="busca" FunctionName="vinciModel.Store.busca">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.busca_Result">
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="control" ColumnName="control" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="busca_en" FunctionName="vinciModel.Store.busca_en">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.busca_en_Result">
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="control" ColumnName="control" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="categoria_rpps_deleta" FunctionName="vinciModel.Store.categoria_rpps_deleta" />
+    <FunctionImportMapping FunctionImportName="categoria_rpps_edita" FunctionName="vinciModel.Store.categoria_rpps_edita" />
+    <FunctionImportMapping FunctionImportName="categoria_rpps_insere" FunctionName="vinciModel.Store.categoria_rpps_insere" />
+    <FunctionImportMapping FunctionImportName="categoria_rpps_lista" FunctionName="vinciModel.Store.categoria_rpps_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.categoria_rpps_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="title_en" ColumnName="title_en" />
+          <ScalarProperty Name="doc_en" ColumnName="doc_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="categoria_rpps_lista_edit" FunctionName="vinciModel.Store.categoria_rpps_lista_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.categoria_rpps_lista_edit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="title_en" ColumnName="title_en" />
+          <ScalarProperty Name="doc_en" ColumnName="doc_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="categorias_deleta" FunctionName="vinciModel.Store.categorias_deleta" />
+    <FunctionImportMapping FunctionImportName="categorias_edita" FunctionName="vinciModel.Store.categorias_edita" />
+    <FunctionImportMapping FunctionImportName="categorias_informacoes_cvm_deleta" FunctionName="vinciModel.Store.categorias_informacoes_cvm_deleta" />
+    <FunctionImportMapping FunctionImportName="categorias_informacoes_cvm_edita" FunctionName="vinciModel.Store.categorias_informacoes_cvm_edita" />
+    <FunctionImportMapping FunctionImportName="categorias_informacoes_cvm_insere" FunctionName="vinciModel.Store.categorias_informacoes_cvm_insere" />
+    <FunctionImportMapping FunctionImportName="categorias_informacoes_cvm_lista" FunctionName="vinciModel.Store.categorias_informacoes_cvm_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.categorias_informacoes_cvm_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="title_en" ColumnName="title_en" />
+          <ScalarProperty Name="doc_en" ColumnName="doc_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="categorias_informacoes_cvm_lista_edit" FunctionName="vinciModel.Store.categorias_informacoes_cvm_lista_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.categorias_informacoes_cvm_lista_edit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="title_en" ColumnName="title_en" />
+          <ScalarProperty Name="doc_en" ColumnName="doc_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="categorias_insere" FunctionName="vinciModel.Store.categorias_insere" />
+    <FunctionImportMapping FunctionImportName="categorias_lista" FunctionName="vinciModel.Store.categorias_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.categorias_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="categorias_lista_edit" FunctionName="vinciModel.Store.categorias_lista_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.categorias_lista_edit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="contato_insere" FunctionName="vinciModel.Store.contato_insere" />
+    <FunctionImportMapping FunctionImportName="contatos_edita" FunctionName="vinciModel.Store.contatos_edita" />
+    <FunctionImportMapping FunctionImportName="contatos_lista" FunctionName="vinciModel.Store.contatos_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.contatos_lista_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto_superior" ColumnName="texto_superior" />
+          <ScalarProperty Name="texto_superior2" ColumnName="texto_superior2" />
+          <ScalarProperty Name="texto_inferior" ColumnName="texto_inferior" />
+          <ScalarProperty Name="texto_inferior2" ColumnName="texto_inferior2" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="texto_lateral" ColumnName="texto_lateral" />
+          <ScalarProperty Name="texto_lateral2" ColumnName="texto_lateral2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="contatos_lista1" FunctionName="vinciModel.Store.contatos_lista1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.contatos_lista1_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto_superior" ColumnName="texto_superior" />
+          <ScalarProperty Name="texto_superior2" ColumnName="texto_superior2" />
+          <ScalarProperty Name="texto_inferior" ColumnName="texto_inferior" />
+          <ScalarProperty Name="texto_inferior2" ColumnName="texto_inferior2" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="texto_lateral" ColumnName="texto_lateral" />
+          <ScalarProperty Name="texto_lateral2" ColumnName="texto_lateral2" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="conteudo_lateral_deleta" FunctionName="vinciModel.Store.conteudo_lateral_deleta" />
+    <FunctionImportMapping FunctionImportName="conteudo_lateral_edita" FunctionName="vinciModel.Store.conteudo_lateral_edita" />
+    <FunctionImportMapping FunctionImportName="conteudo_lateral_insere" FunctionName="vinciModel.Store.conteudo_lateral_insere" />
+    <FunctionImportMapping FunctionImportName="conteudo_lateral_lista" FunctionName="vinciModel.Store.conteudo_lateral_lista" />
+    <FunctionImportMapping FunctionImportName="conteudo_lateral_lista_completa" FunctionName="vinciModel.Store.conteudo_lateral_lista_completa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.conteudo_lateral_lista_completa_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="link_en" ColumnName="link_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="conteudo_lateral_lista1" FunctionName="vinciModel.Store.conteudo_lateral_lista1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.conteudo_lateral_lista1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="link_en" ColumnName="link_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="conteudo_lateral_random" FunctionName="vinciModel.Store.conteudo_lateral_random">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.conteudo_lateral_random_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="link_en" ColumnName="link_en" />
+          <ScalarProperty Name="rn" ColumnName="rn" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="docs_deleta" FunctionName="vinciModel.Store.docs_deleta" />
+    <FunctionImportMapping FunctionImportName="docs_edita" FunctionName="vinciModel.Store.docs_edita" />
+    <FunctionImportMapping FunctionImportName="docs_insere" FunctionName="vinciModel.Store.docs_insere" />
+    <FunctionImportMapping FunctionImportName="docs_lista" FunctionName="vinciModel.Store.docs_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.docs_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="doc1" ColumnName="doc1" />
+          <ScalarProperty Name="doc2" ColumnName="doc2" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="conteudo_id" ColumnName="conteudo_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="docs_lista1" FunctionName="vinciModel.Store.docs_lista1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.docs_lista1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="doc1" ColumnName="doc1" />
+          <ScalarProperty Name="doc2" ColumnName="doc2" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="conteudo_id" ColumnName="conteudo_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="empresa_deleta" FunctionName="vinciModel.Store.empresa_deleta" />
+    <FunctionImportMapping FunctionImportName="empresa_edita" FunctionName="vinciModel.Store.empresa_edita" />
+    <FunctionImportMapping FunctionImportName="empresa_editaimg" FunctionName="vinciModel.Store.empresa_editaimg" />
+    <FunctionImportMapping FunctionImportName="empresa_insere" FunctionName="vinciModel.Store.empresa_insere" />
+    <FunctionImportMapping FunctionImportName="empresa_lista" FunctionName="vinciModel.Store.empresa_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.empresa_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="doc2" ColumnName="doc2" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="empresa_lista1" FunctionName="vinciModel.Store.empresa_lista1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.empresa_lista1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="doc2" ColumnName="doc2" />
+          <ScalarProperty Name="data" ColumnName="data" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="equipe_deleta" FunctionName="vinciModel.Store.equipe_deleta" />
+    <FunctionImportMapping FunctionImportName="equipe_edita" FunctionName="vinciModel.Store.equipe_edita" />
+    <FunctionImportMapping FunctionImportName="equipe_editaimg" FunctionName="vinciModel.Store.equipe_editaimg" />
+    <FunctionImportMapping FunctionImportName="equipe_insere" FunctionName="vinciModel.Store.equipe_insere" />
+    <FunctionImportMapping FunctionImportName="equipe_lista" FunctionName="vinciModel.Store.equipe_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.equipe_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="imgtopo" ColumnName="imgtopo" />
+          <ScalarProperty Name="ordem" ColumnName="ordem" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="equipe_lista_ativos" FunctionName="vinciModel.Store.equipe_lista_ativos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.equipe_lista_ativos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="imgtopo" ColumnName="imgtopo" />
+          <ScalarProperty Name="ordem" ColumnName="ordem" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="equipe_lista1" FunctionName="vinciModel.Store.equipe_lista1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.equipe_lista1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="imgtopo" ColumnName="imgtopo" />
+          <ScalarProperty Name="ordem" ColumnName="ordem" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="fundos_deleta" FunctionName="vinciModel.Store.fundos_deleta" />
+    <FunctionImportMapping FunctionImportName="fundos_edita" FunctionName="vinciModel.Store.fundos_edita" />
+    <FunctionImportMapping FunctionImportName="fundos_insere" FunctionName="vinciModel.Store.fundos_insere" />
+    <FunctionImportMapping FunctionImportName="fundos_lista" FunctionName="vinciModel.Store.fundos_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.fundos_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="perfil" ColumnName="perfil" />
+          <ScalarProperty Name="factsheet" ColumnName="factsheet" />
+          <ScalarProperty Name="prospecto" ColumnName="prospecto" />
+          <ScalarProperty Name="regulamento" ColumnName="regulamento" />
+          <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="subtitle" ColumnName="subtitle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="fundos_lista_all" FunctionName="vinciModel.Store.fundos_lista_all">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.fundos_lista_all_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="perfil" ColumnName="perfil" />
+          <ScalarProperty Name="factsheet" ColumnName="factsheet" />
+          <ScalarProperty Name="prospecto" ColumnName="prospecto" />
+          <ScalarProperty Name="regulamento" ColumnName="regulamento" />
+          <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="subtitle" ColumnName="subtitle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="informacoes_cvm_deleta" FunctionName="vinciModel.Store.informacoes_cvm_deleta" />
+    <FunctionImportMapping FunctionImportName="informacoes_cvm_edita" FunctionName="vinciModel.Store.informacoes_cvm_edita" />
+    <FunctionImportMapping FunctionImportName="informacoes_cvm_insere" FunctionName="vinciModel.Store.informacoes_cvm_insere" />
+    <FunctionImportMapping FunctionImportName="informacoes_cvm_lista" FunctionName="vinciModel.Store.informacoes_cvm_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.informacoes_cvm_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categorias_informacoes_cvm_id" ColumnName="categorias_informacoes_cvm_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="title_en" ColumnName="title_en" />
+          <ScalarProperty Name="doc_en" ColumnName="doc_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="informacoes_cvm_lista_edit" FunctionName="vinciModel.Store.informacoes_cvm_lista_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.informacoes_cvm_lista_edit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categorias_informacoes_cvm_id" ColumnName="categorias_informacoes_cvm_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="title_en" ColumnName="title_en" />
+          <ScalarProperty Name="doc_en" ColumnName="doc_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="informacoes_deleta" FunctionName="vinciModel.Store.informacoes_deleta" />
+    <FunctionImportMapping FunctionImportName="informacoes_edita" FunctionName="vinciModel.Store.informacoes_edita" />
+    <FunctionImportMapping FunctionImportName="informacoes_insere" FunctionName="vinciModel.Store.informacoes_insere" />
+    <FunctionImportMapping FunctionImportName="informacoes_lista" FunctionName="vinciModel.Store.informacoes_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.informacoes_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="pdf" ColumnName="pdf" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="informacoes_lista1" FunctionName="vinciModel.Store.informacoes_lista1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.informacoes_lista1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="pdf" ColumnName="pdf" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="lamina_doc_edita" FunctionName="vinciModel.Store.lamina_doc_edita" />
+    <FunctionImportMapping FunctionImportName="lamina_edita" FunctionName="vinciModel.Store.lamina_edita" />
+    <FunctionImportMapping FunctionImportName="negocios_edita" FunctionName="vinciModel.Store.negocios_edita" />
+    <FunctionImportMapping FunctionImportName="negocios_lista" FunctionName="vinciModel.Store.negocios_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.negocios_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="doc2" ColumnName="doc2" />
+          <ScalarProperty Name="rodape" ColumnName="rodape" />
+          <ScalarProperty Name="rodape_en" ColumnName="rodape_en" />
+          <ScalarProperty Name="doc_rodape" ColumnName="doc_rodape" />
+          <ScalarProperty Name="doc_rodape_en" ColumnName="doc_rodape_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="negocios_lista1" FunctionName="vinciModel.Store.negocios_lista1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.negocios_lista1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="doc2" ColumnName="doc2" />
+          <ScalarProperty Name="rodape" ColumnName="rodape" />
+          <ScalarProperty Name="rodape_en" ColumnName="rodape_en" />
+          <ScalarProperty Name="doc_rodape" ColumnName="doc_rodape" />
+          <ScalarProperty Name="doc_rodape_en" ColumnName="doc_rodape_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="parceiros_operacoes_deleta" FunctionName="vinciModel.Store.parceiros_operacoes_deleta" />
+    <FunctionImportMapping FunctionImportName="parceiros_operacoes_edita" FunctionName="vinciModel.Store.parceiros_operacoes_edita" />
+    <FunctionImportMapping FunctionImportName="parceiros_operacoes_insere" FunctionName="vinciModel.Store.parceiros_operacoes_insere" />
+    <FunctionImportMapping FunctionImportName="parceiros_operacoes_lista" FunctionName="vinciModel.Store.parceiros_operacoes_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.parceiros_operacoes_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="img2" ColumnName="img2" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="subtitulo" ColumnName="subtitulo" />
+          <ScalarProperty Name="subtitulo2" ColumnName="subtitulo2" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="legenda" ColumnName="legenda" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="parceiros_operacoes_lista1" FunctionName="vinciModel.Store.parceiros_operacoes_lista1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.parceiros_operacoes_lista1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="img2" ColumnName="img2" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="titulo2" ColumnName="titulo2" />
+          <ScalarProperty Name="subtitulo" ColumnName="subtitulo" />
+          <ScalarProperty Name="subtitulo2" ColumnName="subtitulo2" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="texto2" ColumnName="texto2" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="legenda" ColumnName="legenda" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="relacionamentos_deleta" FunctionName="vinciModel.Store.relacionamentos_deleta" />
+    <FunctionImportMapping FunctionImportName="relacionamentos_insere" FunctionName="vinciModel.Store.relacionamentos_insere" />
+    <FunctionImportMapping FunctionImportName="relacionamentos_lista" FunctionName="vinciModel.Store.relacionamentos_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.relacionamentos_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="conteudo_id" ColumnName="conteudo_id" />
+          <ScalarProperty Name="secao" ColumnName="secao" />
+          <ScalarProperty Name="link" ColumnName="link" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="rpps_deleta" FunctionName="vinciModel.Store.rpps_deleta" />
+    <FunctionImportMapping FunctionImportName="rpps_edita" FunctionName="vinciModel.Store.rpps_edita" />
+    <FunctionImportMapping FunctionImportName="rpps_insere" FunctionName="vinciModel.Store.rpps_insere" />
+    <FunctionImportMapping FunctionImportName="rpps_lista" FunctionName="vinciModel.Store.rpps_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.rpps_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoria_rpps_id" ColumnName="categoria_rpps_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="title_en" ColumnName="title_en" />
+          <ScalarProperty Name="doc_en" ColumnName="doc_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="rpps_lista_edit" FunctionName="vinciModel.Store.rpps_lista_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.rpps_lista_edit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="categoria_rpps_id" ColumnName="categoria_rpps_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="doc" ColumnName="doc" />
+          <ScalarProperty Name="title_en" ColumnName="title_en" />
+          <ScalarProperty Name="doc_en" ColumnName="doc_en" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usuario_deleta" FunctionName="vinciModel.Store.usuario_deleta" />
+    <FunctionImportMapping FunctionImportName="usuario_edita" FunctionName="vinciModel.Store.usuario_edita" />
+    <FunctionImportMapping FunctionImportName="usuario_edita_senha" FunctionName="vinciModel.Store.usuario_edita_senha" />
+    <FunctionImportMapping FunctionImportName="usuario_insere" FunctionName="vinciModel.Store.usuario_insere" />
+    <FunctionImportMapping FunctionImportName="usuario_insere_lamina" FunctionName="vinciModel.Store.usuario_insere_lamina" />
+    <FunctionImportMapping FunctionImportName="usuario_lista" FunctionName="vinciModel.Store.usuario_lista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.usuario_lista_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usuario_lista_login" FunctionName="vinciModel.Store.usuario_lista_login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.usuario_lista_login_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usuario_lista1" FunctionName="vinciModel.Store.usuario_lista1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="vinciModel.usuario_lista1_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

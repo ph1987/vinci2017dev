@@ -1,0 +1,90 @@
+﻿@model IEnumerable<vinci_novo.Models.news>
+@{
+    vinci_novo.Models.vinci_novoEntities db = new vinci_novo.Models.vinci_novoEntities();
+    ViewBag.Title = "notícias | Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<div class="page page-tables-datatables">
+
+    <div class="pageheader">
+
+        <h2>Notícias</h2>
+
+    </div>
+
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-md-12">
+
+            <!-- tile editable usage -->
+            <section class="tile">
+
+                <!-- tile header -->
+                <div class="tile-header dvd dvd-btm">
+                    <h1 class="custom-font">@TempData["acao"]</h1>
+                    <ul class="controls">
+                        <li>
+                            <a role="button" tabindex="0" href="@Url.RouteUrl(new { controller = "admNews", action = "Create" })"><i class="fa fa-plus mr-5"></i>Adicionar</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /tile header -->
+                <!-- tile body -->
+                <div class="tile-body">
+                    <div class="table-responsive">
+                        <!-- <div class="col-md-pull-11" style="float: right;">
+                            <button class="btn btn-defaut btn-border btn-ef btn-ef-5 btn-ef-5b mb-10">
+                                <i class="fa fa-plus"></i>
+                                <span>Adicionar</span>
+                            </button>
+                        </div> -->
+
+                        <table class="table table-custom" id="editable-usage">
+                            <thead>
+                                <tr class="odd gradeX">
+                                    <th>Destaque</th>
+                                    <th>Categoria</th>
+                                    <th>Texto 1</th>
+                                    <th>Texto 2</th>
+                                    <th style="width: 50px; text-align: right; padding: 10px 0px 10px 0px;" class="no-sort">Opções</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="odd gradeX">
+                                        @if (item.highlight == "on")
+                                        {
+                                            <td><span class="check-toggler checked toggle-class" data-toggle="checked"></span></td>
+                                        }
+                                        else
+                                        {
+                                            <td><span class="check-toggler toggle-class" data-toggle="checked"></span></td>
+                                        }
+                                        <td>@item.category</td>
+                                        <td>@item.txt1</td>
+                                        <td>@item.txt2</td>
+                                        <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions">
+                                        <a role="button" href="@Url.RouteUrl(new { controller = "admNews", action = "Edit", id = @item.id })" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a>
+                                        <a role="button" href="@Url.RouteUrl(new { controller = "admNews", action = "Delete", id = @item.id })" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /tile body -->
+
+            </section>
+            <!-- /tile -->
+
+        </div>
+        <!-- /col -->
+    </div>
+    <!-- /row -->
+
+</div>
+

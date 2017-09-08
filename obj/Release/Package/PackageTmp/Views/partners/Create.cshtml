@@ -1,0 +1,88 @@
+﻿@model vinci_novo.Models.partners
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+    vinci_novo.Models.vinci_novoEntities db = new vinci_novo.Models.vinci_novoEntities();
+    string pg = "";
+    if (Request.QueryString["page"] != null)
+    {
+        pg = Request.QueryString["page"];
+    }
+    var list1 = db.partners.Where(m => m.page == pg).ToList();
+    var list2 = list1.Select(m => m.txt2).Distinct();
+}
+
+<script>
+      $( function() {
+        var availableTags = [
+          @{
+              foreach (var o in list2)
+              {
+                  <text>"@o",</text>
+              }
+          }
+        ];
+          $("#cargo").autocomplete({
+          source: availableTags
+        });
+      } );
+</script>
+
+<div class="page page-forms-wizard">
+
+    <div class="pageheader">
+
+        @if (Request.QueryString["page"] == "conselho")
+        {
+            <h2>Adicionar <span>// <a href="governanca-conselho.html">CONSELHO DE ADMINISTRAÇÃO</a> // GOVERNANÇA // EMPRESA</span></h2>
+        }
+        else if (Request.QueryString["page"] == "socios")
+        {
+            <h2>Adicionar <span>// <a href="governanca-conselho.html">MEMBROS</a> // SÓCIOS // EMPRESA</span></h2>
+        }
+
+    </div>
+
+    <!-- page content -->
+    <div class="pagecontent">
+        <div class="form-container">
+            @using (Html.BeginForm("Create", "partners", new { page = Request.QueryString["page"] }, FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="nome">Nome:</label>
+                        <input type="text" name="txt1" id="nome" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="cargo">Cargo:</label>
+                        <input type="text" name="txt2" placeholder="campo com autocomplete" id="cargo" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="texto">Texto:</label>
+                        <textarea class="form-control" name="txt3" rows="8" id="texto" placeholder="Digite o texto aqui."></textarea>
+                    </div>
+                </div>
+                <div class="fileupload-buttonbar ">
+                    <span class="btn btn-slategray fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Adicionar imagem</span>
+                        <input type="file" name="file">
+                    </span>
+                </div>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-cyan btn-ef btn-ef-5 btn-ef-5b mb-10">
+                    <i class="fa fa-floppy-o"></i>
+                    <span>Salvar</span>
+                </button>
+            }
+        </div>
+    </div>
+    <!-- /page content -->
+
+</div>
+

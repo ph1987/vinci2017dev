@@ -1,0 +1,56 @@
+﻿@model IEnumerable<vinci_novo.Models.valors>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+<div class="page page-tables-datatables">
+    <div class="pageheader">
+        <h2>Valores <span>// INSTITUCIONAL // EMPRESA</span></h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <section class="tile">
+                <div class="tile-header dvd dvd-btm">
+                    <h1 class="custom-font">@TempData["acao"]</h1>
+                    <ul class="controls">
+                        <li>
+                            <a role="button" tabindex="0" href="@Url.RouteUrl(new { controller = "admValors", action = "Create" })"><i class="fa fa-plus mr-5"></i>Adicionar</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tile-body">
+                    <div class="table-responsive">
+                        <table class="table table-custom" id="editable-usage">
+                            <thead>
+                                <tr class="odd gradeX">
+                                    <th>Bullet</th>
+                                    <th style="width: 50px; text-align: right; padding: 10px 0px 10px 0px;" class="no-sort">Opções</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="odd gradeX">
+                                        <td>@item.txt1</td>
+                                        <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions">
+                                            <a role="button" href="@Url.RouteUrl(new { controller = "admValors", action = "Edit", id = @item.id })" tabindex="1" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a>
+                                            <a role="button" href="@Url.RouteUrl(new { controller = "admValors", action = "Delete", id = @item.id })" tabindex="2" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /tile body -->
+
+            </section>
+            <!-- /tile -->
+
+        </div>
+        <!-- /col -->
+    </div>
+    <!-- /row -->
+
+</div>
+

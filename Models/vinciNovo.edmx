@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="vinci_novoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cards">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar" MaxLength="250" />
+          <Property Name="tituloen" Type="nvarchar" MaxLength="250" />
+          <Property Name="link" Type="nvarchar" MaxLength="250" />
+          <Property Name="imagem" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ativo" Type="int" Nullable="false" />
+          <Property Name="created" Type="datetime" Nullable="false" />
+          <Property Name="updated" Type="datetime" Nullable="false" />
+          <Property Name="ordem" Type="int" />
+        </EntityType>
+        <EntityType Name="categories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar" MaxLength="250" />
+          <Property Name="tituloen" Type="nvarchar" MaxLength="250" />
+          <Property Name="ativo" Type="int" Nullable="false" />
+          <Property Name="created" Type="datetime" Nullable="false" />
+          <Property Name="updated" Type="datetime" Nullable="false" />
+          <Property Name="ordem" Type="int" />
+        </EntityType>
+        <EntityType Name="families">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="perfil_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="350" />
+          <Property Name="regulamento" Type="nvarchar" MaxLength="250" />
+          <Property Name="factsheet" Type="nvarchar" MaxLength="250" />
+          <Property Name="lamina_info_essenciais" Type="nvarchar" MaxLength="250" />
+          <Property Name="prospecto" Type="nvarchar" MaxLength="250" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="files">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filename" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="content_id" Type="int" Nullable="false" />
+          <Property Name="reference" Type="nvarchar" MaxLength="150" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="position" Type="int" />
+        </EntityType>
+        <EntityType Name="highlights">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="txt1" Type="text" />
+          <Property Name="txt1_en" Type="text" />
+          <Property Name="txt2" Type="text" />
+          <Property Name="txt2_en" Type="text" />
+          <Property Name="txt3" Type="text" />
+          <Property Name="txt3_en" Type="text" />
+          <Property Name="video" Type="text" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+          <Property Name="position" Type="int" />
+          <Property Name="page" Type="nvarchar" MaxLength="250" />
+          <Property Name="link" Type="text" />
+          <Property Name="status" Type="int" />
+          <Property Name="opt" Type="nvarchar" MaxLength="50" />
+          <Property Name="txt4" Type="text" />
+          <Property Name="txt4_en" Type="text" />
+        </EntityType>
+        <EntityType Name="institutions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="section" Type="nvarchar" MaxLength="150" />
+          <Property Name="text" Type="text" />
+          <Property Name="position" Type="int" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category" Type="nvarchar" MaxLength="350" />
+          <Property Name="txt1" Type="text" />
+          <Property Name="txt1_en" Type="text" />
+          <Property Name="txt2" Type="text" />
+          <Property Name="txt2_en" Type="text" />
+          <Property Name="videoUrl" Type="text" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="position" Type="int" />
+          <Property Name="highlight" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="numbers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prefix" Type="nvarchar" MaxLength="50" />
+          <Property Name="bigNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="suffix" Type="nvarchar" MaxLength="50" />
+          <Property Name="txt" Type="text" />
+          <Property Name="txt_en" Type="text" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+          <Property Name="position" Type="int" />
+          <Property Name="status" Type="int" />
+          <Property Name="page" Type="nvarchar" MaxLength="50" />
+          <Property Name="bigNumberBold" Type="int" />
+          <Property Name="suffixBold" Type="int" />
+          <Property Name="txtBold" Type="int" />
+        </EntityType>
+        <EntityType Name="partners">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="txt1" Type="text" />
+          <Property Name="txt1_en" Type="text" />
+          <Property Name="txt2" Type="text" />
+          <Property Name="txt2_en" Type="text" />
+          <Property Name="txt3" Type="text" />
+          <Property Name="txt3_en" Type="text" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="position" Type="int" />
+          <Property Name="page" Type="nvarchar" MaxLength="250" />
+          <Property Name="img" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="risks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="titleen" Type="nvarchar" MaxLength="250" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+          <Property Name="position" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="txts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="txt1" Type="text" />
+          <Property Name="txt1_en" Type="text" />
+          <Property Name="page" Type="nvarchar" MaxLength="150" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="valors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="txt1" Type="text" />
+          <Property Name="txt1_en" Type="text" />
+          <Property Name="status" Type="int" />
+          <Property Name="position" Type="int" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="vinci_novoModelStoreContainer">
+          <EntitySet Name="cards" EntityType="Self.cards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="families" EntityType="Self.families" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="files" EntityType="Self.files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="highlights" EntityType="Self.highlights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="institutions" EntityType="Self.institutions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="numbers" EntityType="Self.numbers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="partners" EntityType="Self.partners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="risks" EntityType="Self.risks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="txts" EntityType="Self.txts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="valors" EntityType="Self.valors" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="vinci_novoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="vinci_novoEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="cards" EntityType="vinci_novoModel.cards" />
+          <EntitySet Name="categories" EntityType="vinci_novoModel.categories" />
+          <EntitySet Name="files" EntityType="vinci_novoModel.files" />
+          <EntitySet Name="risks" EntityType="vinci_novoModel.risks" />
+          <EntitySet Name="users" EntityType="vinci_novoModel.users" />
+          <EntitySet Name="numbers" EntityType="vinci_novoModel.numbers" />
+          <EntitySet Name="families" EntityType="vinci_novoModel.families" />
+          <EntitySet Name="institutions" EntityType="vinci_novoModel.institutions" />
+          <EntitySet Name="highlights" EntityType="vinci_novoModel.highlights" />
+          <EntitySet Name="txts" EntityType="vinci_novoModel.txts" />
+          <EntitySet Name="valors" EntityType="vinci_novoModel.valors" />
+          <EntitySet Name="partners" EntityType="vinci_novoModel.partners" />
+          <EntitySet Name="news" EntityType="vinci_novoModel.news" />
+        </EntityContainer>
+        <EntityType Name="cards">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="tituloen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="imagem" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ativo" Type="Int32" Nullable="false" />
+          <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ordem" Type="Int32" />
+        </EntityType>
+        <EntityType Name="categories">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="tituloen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ativo" Type="Int32" Nullable="false" />
+          <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updated" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ordem" Type="Int32" />
+        </EntityType>
+        <EntityType Name="files">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filename" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="content_id" Type="Int32" Nullable="false" />
+          <Property Name="reference" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="position" Type="Int32" />
+        </EntityType>
+        <EntityType Name="risks">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="titleen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="numbers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="prefix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bigNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="suffix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="txt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <Property Name="position" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="page" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bigNumberBold" Type="Int32" />
+          <Property Name="suffixBold" Type="Int32" />
+          <Property Name="txtBold" Type="Int32" />
+        </EntityType>
+        <EntityType Name="families">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="perfil_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="regulamento" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="factsheet" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="lamina_info_essenciais" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="prospecto" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="institutions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="section" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="Int32" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="highlights">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="txt1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt1_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt2_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt3_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="video" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <Property Name="position" Type="Int32" />
+          <Property Name="page" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="opt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="txt4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt4_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="txts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="txt1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt1_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="page" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="valors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="txt1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt1_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="position" Type="Int32" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="partners">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="txt1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt1_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt2_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt3_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="position" Type="Int32" />
+          <Property Name="page" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="news">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="txt1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt1_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="txt2_en" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="videoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="position" Type="Int32" />
+          <Property Name="highlight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="vinci_novoModelStoreContainer" CdmEntityContainer="vinci_novoEntities" >
+          <EntitySetMapping Name="cards">
+            <EntityTypeMapping TypeName="vinci_novoModel.cards">
+              <MappingFragment StoreEntitySet="cards">
+                <ScalarProperty Name="ordem" ColumnName="ordem" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="imagem" ColumnName="imagem" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="tituloen" ColumnName="tituloen" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="vinci_novoModel.categories">
+              <MappingFragment StoreEntitySet="categories">
+                <ScalarProperty Name="ordem" ColumnName="ordem" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="tituloen" ColumnName="tituloen" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="files">
+            <EntityTypeMapping TypeName="vinci_novoModel.files">
+              <MappingFragment StoreEntitySet="files">
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="content_id" ColumnName="content_id" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="risks">
+            <EntityTypeMapping TypeName="vinci_novoModel.risks">
+              <MappingFragment StoreEntitySet="risks">
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="titleen" ColumnName="titleen" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="vinci_novoModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="numbers">
+            <EntityTypeMapping TypeName="vinci_novoModel.numbers">
+              <MappingFragment StoreEntitySet="numbers">
+                <ScalarProperty Name="txtBold" ColumnName="txtBold" />
+                <ScalarProperty Name="suffixBold" ColumnName="suffixBold" />
+                <ScalarProperty Name="bigNumberBold" ColumnName="bigNumberBold" />
+                <ScalarProperty Name="page" ColumnName="page" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="txt_en" ColumnName="txt_en" />
+                <ScalarProperty Name="txt" ColumnName="txt" />
+                <ScalarProperty Name="suffix" ColumnName="suffix" />
+                <ScalarProperty Name="bigNumber" ColumnName="bigNumber" />
+                <ScalarProperty Name="prefix" ColumnName="prefix" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="families">
+            <EntityTypeMapping TypeName="vinci_novoModel.families">
+              <MappingFragment StoreEntitySet="families">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="prospecto" ColumnName="prospecto" />
+                <ScalarProperty Name="lamina_info_essenciais" ColumnName="lamina_info_essenciais" />
+                <ScalarProperty Name="factsheet" ColumnName="factsheet" />
+                <ScalarProperty Name="regulamento" ColumnName="regulamento" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="perfil_id" ColumnName="perfil_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="institutions">
+            <EntityTypeMapping TypeName="vinci_novoModel.institutions">
+              <MappingFragment StoreEntitySet="institutions">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="section" ColumnName="section" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="highlights">
+            <EntityTypeMapping TypeName="vinci_novoModel.highlights">
+              <MappingFragment StoreEntitySet="highlights">
+                <ScalarProperty Name="txt4_en" ColumnName="txt4_en" />
+                <ScalarProperty Name="txt4" ColumnName="txt4" />
+                <ScalarProperty Name="opt" ColumnName="opt" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="page" ColumnName="page" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="video" ColumnName="video" />
+                <ScalarProperty Name="txt3_en" ColumnName="txt3_en" />
+                <ScalarProperty Name="txt3" ColumnName="txt3" />
+                <ScalarProperty Name="txt2_en" ColumnName="txt2_en" />
+                <ScalarProperty Name="txt2" ColumnName="txt2" />
+                <ScalarProperty Name="txt1_en" ColumnName="txt1_en" />
+                <ScalarProperty Name="txt1" ColumnName="txt1" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="txts">
+            <EntityTypeMapping TypeName="vinci_novoModel.txts">
+              <MappingFragment StoreEntitySet="txts">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="page" ColumnName="page" />
+                <ScalarProperty Name="txt1_en" ColumnName="txt1_en" />
+                <ScalarProperty Name="txt1" ColumnName="txt1" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="valors">
+            <EntityTypeMapping TypeName="vinci_novoModel.valors">
+              <MappingFragment StoreEntitySet="valors">
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="txt1_en" ColumnName="txt1_en" />
+                <ScalarProperty Name="txt1" ColumnName="txt1" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="partners">
+            <EntityTypeMapping TypeName="vinci_novoModel.partners">
+              <MappingFragment StoreEntitySet="partners">
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="page" ColumnName="page" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="txt3_en" ColumnName="txt3_en" />
+                <ScalarProperty Name="txt3" ColumnName="txt3" />
+                <ScalarProperty Name="txt2_en" ColumnName="txt2_en" />
+                <ScalarProperty Name="txt2" ColumnName="txt2" />
+                <ScalarProperty Name="txt1_en" ColumnName="txt1_en" />
+                <ScalarProperty Name="txt1" ColumnName="txt1" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="news">
+            <EntityTypeMapping TypeName="vinci_novoModel.news">
+              <MappingFragment StoreEntitySet="news">
+                <ScalarProperty Name="highlight" ColumnName="highlight" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="videoUrl" ColumnName="videoUrl" />
+                <ScalarProperty Name="txt2_en" ColumnName="txt2_en" />
+                <ScalarProperty Name="txt2" ColumnName="txt2" />
+                <ScalarProperty Name="txt1_en" ColumnName="txt1_en" />
+                <ScalarProperty Name="txt1" ColumnName="txt1" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

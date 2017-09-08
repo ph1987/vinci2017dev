@@ -1,0 +1,37 @@
+﻿@model vinci_novo.Models.valors
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<div class="page page-forms-wizard">
+
+    <div class="pageheader">
+
+        <h2>Adicionar Valores <span>// INSTITUCIONAL // EMPRESA</span></h2>
+
+    </div>
+
+    <!-- page content -->
+    <div class="pagecontent">
+        @using (Html.BeginForm("Create", "admValors", FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+        {
+        <div class="form-container">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="texto">Texto: </label>
+                    <textarea class="form-control" rows="2" name="txt1" id="texto" placeholder="Digite o texto aqui."></textarea>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-cyan btn-ef btn-ef-5 btn-ef-5b mb-10">
+                <i class="fa fa-floppy-o"></i>
+                <span>Salvar</span>
+            </button>
+        </div>
+        }
+    </div>
+    <!-- /page content -->
+
+</div>
+

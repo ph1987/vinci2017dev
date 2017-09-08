@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="vinci_novoModelStoreContainer" CdmEntityContainer="vinci_novoEntities">
+    <EntitySetMapping Name="cards">
+      <EntityTypeMapping TypeName="vinci_novoModel.cards">
+        <MappingFragment StoreEntitySet="cards">
+          <ScalarProperty Name="ordem" ColumnName="ordem" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="imagem" ColumnName="imagem" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="tituloen" ColumnName="tituloen" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="vinci_novoModel.categories">
+        <MappingFragment StoreEntitySet="categories">
+          <ScalarProperty Name="ordem" ColumnName="ordem" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="ativo" ColumnName="ativo" />
+          <ScalarProperty Name="tituloen" ColumnName="tituloen" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="files">
+      <EntityTypeMapping TypeName="vinci_novoModel.files">
+        <MappingFragment StoreEntitySet="files">
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="reference" ColumnName="reference" />
+          <ScalarProperty Name="content_id" ColumnName="content_id" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="risks">
+      <EntityTypeMapping TypeName="vinci_novoModel.risks">
+        <MappingFragment StoreEntitySet="risks">
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="titleen" ColumnName="titleen" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="vinci_novoModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="numbers">
+      <EntityTypeMapping TypeName="vinci_novoModel.numbers">
+        <MappingFragment StoreEntitySet="numbers">
+          <ScalarProperty Name="txtBold" ColumnName="txtBold" />
+          <ScalarProperty Name="suffixBold" ColumnName="suffixBold" />
+          <ScalarProperty Name="bigNumberBold" ColumnName="bigNumberBold" />
+          <ScalarProperty Name="page" ColumnName="page" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="txt_en" ColumnName="txt_en" />
+          <ScalarProperty Name="txt" ColumnName="txt" />
+          <ScalarProperty Name="suffix" ColumnName="suffix" />
+          <ScalarProperty Name="bigNumber" ColumnName="bigNumber" />
+          <ScalarProperty Name="prefix" ColumnName="prefix" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="families">
+      <EntityTypeMapping TypeName="vinci_novoModel.families">
+        <MappingFragment StoreEntitySet="families">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="prospecto" ColumnName="prospecto" />
+          <ScalarProperty Name="lamina_info_essenciais" ColumnName="lamina_info_essenciais" />
+          <ScalarProperty Name="factsheet" ColumnName="factsheet" />
+          <ScalarProperty Name="regulamento" ColumnName="regulamento" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="perfil_id" ColumnName="perfil_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="institutions">
+      <EntityTypeMapping TypeName="vinci_novoModel.institutions">
+        <MappingFragment StoreEntitySet="institutions">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="section" ColumnName="section" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="highlights">
+      <EntityTypeMapping TypeName="vinci_novoModel.highlights">
+        <MappingFragment StoreEntitySet="highlights">
+          <ScalarProperty Name="txt4_en" ColumnName="txt4_en" />
+          <ScalarProperty Name="txt4" ColumnName="txt4" />
+          <ScalarProperty Name="opt" ColumnName="opt" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="page" ColumnName="page" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="video" ColumnName="video" />
+          <ScalarProperty Name="txt3_en" ColumnName="txt3_en" />
+          <ScalarProperty Name="txt3" ColumnName="txt3" />
+          <ScalarProperty Name="txt2_en" ColumnName="txt2_en" />
+          <ScalarProperty Name="txt2" ColumnName="txt2" />
+          <ScalarProperty Name="txt1_en" ColumnName="txt1_en" />
+          <ScalarProperty Name="txt1" ColumnName="txt1" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="txts">
+      <EntityTypeMapping TypeName="vinci_novoModel.txts">
+        <MappingFragment StoreEntitySet="txts">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="page" ColumnName="page" />
+          <ScalarProperty Name="txt1_en" ColumnName="txt1_en" />
+          <ScalarProperty Name="txt1" ColumnName="txt1" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="valors">
+      <EntityTypeMapping TypeName="vinci_novoModel.valors">
+        <MappingFragment StoreEntitySet="valors">
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="txt1_en" ColumnName="txt1_en" />
+          <ScalarProperty Name="txt1" ColumnName="txt1" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="partners">
+      <EntityTypeMapping TypeName="vinci_novoModel.partners">
+        <MappingFragment StoreEntitySet="partners">
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="page" ColumnName="page" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="txt3_en" ColumnName="txt3_en" />
+          <ScalarProperty Name="txt3" ColumnName="txt3" />
+          <ScalarProperty Name="txt2_en" ColumnName="txt2_en" />
+          <ScalarProperty Name="txt2" ColumnName="txt2" />
+          <ScalarProperty Name="txt1_en" ColumnName="txt1_en" />
+          <ScalarProperty Name="txt1" ColumnName="txt1" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="news">
+      <EntityTypeMapping TypeName="vinci_novoModel.news">
+        <MappingFragment StoreEntitySet="news">
+          <ScalarProperty Name="highlight" ColumnName="highlight" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="videoUrl" ColumnName="videoUrl" />
+          <ScalarProperty Name="txt2_en" ColumnName="txt2_en" />
+          <ScalarProperty Name="txt2" ColumnName="txt2" />
+          <ScalarProperty Name="txt1_en" ColumnName="txt1_en" />
+          <ScalarProperty Name="txt1" ColumnName="txt1" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

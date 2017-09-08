@@ -1,0 +1,73 @@
+﻿@model IEnumerable<vinci_novo.Models.users>
+@{
+    ViewBag.Title = "usuários | Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<div class="page page-tables-datatables">
+
+    <div class="pageheader">
+
+        <h2>Administrar Usuários</h2>
+
+    </div>
+
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-md-12">
+
+            <!-- tile editable usage -->
+            <section class="tile">
+
+                <!-- tile header -->
+                <div class="tile-header dvd dvd-btm">
+                    <h1 class="custom-font">@TempData["acao"]</h1>
+                    <ul class="controls">
+                        <li>
+                            <a role="button" tabindex="0" href="@Url.RouteUrl(new { controller = "user", action = "Create" })"><i class="fa fa-plus mr-5"></i>Adicionar</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /tile header -->
+                <!-- tile body -->
+                <div class="tile-body">
+                    <div class="table-responsive">
+
+                        <table class="table table-custom" id="editable-usage">
+                            <thead>
+                                <tr class="odd gradeX">
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Tipo de Usuário</th>
+                                    <th style="width: 50px; text-align: right; padding: 10px 0px 10px 0px;" class="no-sort">Opções</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="odd gradeX">
+                                        <td>@item.name</td>
+                                        <td>@item.email</td>
+                                        <td>@item.type</td>
+                                        <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions">
+                                            <a href="@Url.RouteUrl(new { controller = "user", action = "Edit", id = @item.id })" role="button" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a>
+                                            <a href="@Url.RouteUrl(new { controller = "user", action = "Delete", id = @item.id })" role="button" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /tile body -->
+
+            </section>
+            <!-- /tile -->
+
+        </div>
+        <!-- /col -->
+    </div>
+    <!-- /row -->
+
+</div>

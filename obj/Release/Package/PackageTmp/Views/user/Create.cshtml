@@ -1,0 +1,118 @@
+﻿@model vinci_novo.Models.users
+@{
+    ViewBag.Title = "usuários | Create";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<div class="page page-forms-wizard">
+
+    <div class="pageheader">
+        <h2>Adicionar Usuário <span>// <a href="@Url.RouteUrl(new { controller = "user", action = "Index" })">ADMINISTRAR USUÁRIOS</a></span></h2>
+    </div>
+
+    <!-- page content -->
+    <div class="pagecontent">
+        <div class="form-container">
+        @using (Html.BeginForm("Create", "user", FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="name" id="nome" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="email">Email: </label>
+                    <input type="text" name="email" id="email" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="senha">Senha: </label>
+                    <input type="password" name="password" id="senha" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="tipo">Tipo de Usuário</label>
+                    <select name="type" id="tipo" class="form-control mb-10">
+                        <option value="Institucional">Institucional</option>
+                        <option value="Compliance">Compliance</option>
+                        <option value="Middle Office">Middle Office</option>
+                        <option value="RH">RH</option>
+                        <option value="Super Administrador">Super Admin</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-cyan btn-ef btn-ef-5 btn-ef-5b mb-10">
+                <i class="fa fa-floppy-o"></i>
+                <span>Salvar</span>
+            </button>
+        }
+        </div>
+    </div>
+</div>
+
+    @*@using (Html.BeginForm("Create", "user", FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>usuários</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.nome)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.nome, new { @class = "medium-input" })
+                    @Html.ValidationMessageFor(model => model.nome)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.email)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.email, new { @class = "medium-input" })
+                    @Html.ValidationMessageFor(model => model.email)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.senha)
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(model => model.senha, new { @class = "medium-input" })
+                    @Html.ValidationMessageFor(model => model.senha)
+                </div>
+
+                <div class="editor-label">
+                    tipo de usuário
+                </div>
+                <div class="editor-field">
+                    <select name="tipo_usuario">
+                        <option value="0">Selecione o tipo de usuário:</option>
+                        <option value="Super Administrador">Super Administrador</option>
+                        <option value="RH">RH</option>
+                        <option value="Middle Office">Middle Office</option>
+                        <option value="Compliance">Compliance</option>
+                        <option value="Institucional">Institucional</option>
+                    </select>
+                </div>
+
+                <div class="editor-field">
+                    <label>@Html.RadioButtonFor(model => model.ativo, 0)Inativo</label>
+                    <label>@Html.RadioButtonFor(model => model.ativo, 1, new { @checked = "checked" })Ativo</label>
+                </div>
+
+
+                <p>
+                    <input type="submit" value="Adicionar" />
+                </p>
+
+            </fieldset>
+        }*@
+

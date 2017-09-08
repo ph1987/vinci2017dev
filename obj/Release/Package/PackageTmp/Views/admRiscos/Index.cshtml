@@ -1,0 +1,115 @@
+﻿@model IEnumerable<vinci_novo.Models.risks>
+@{
+    ViewBag.Title = "riscos | Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+@*<span style="color:#00ff21;">@Html.ActionLink("Adicionar", "Create")</span><br /><br />*@
+@*<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+    <thead>
+        <tr>
+            <th>título</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><a href="@Url.RouteUrl(new { controller = "admRiscos", action = "Edit", id = @item.id })" title="Editar">@item.titulo</a></td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+<div class="page page-tables-datatables">
+
+    <div class="pageheader">
+
+        <h2>Perfis de Risco</h2>
+
+    </div>
+
+    <!-- row -->
+    <div class="row">
+        <!-- col -->
+        <div class="col-md-12">
+
+            <!-- tile editable usage -->
+            <section class="tile">
+
+                <!-- tile header -->
+                <div class="tile-header dvd dvd-btm">
+                    <h1 class="custom-font">@TempData["acao"]</h1>
+                    <ul class="controls">
+                        <li>
+                            <a href="@Url.RouteUrl(new { controller = "admRiscos", action = "Create" })" role="button" tabindex="0"><i class="fa fa-plus mr-5"></i>Adicionar</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /tile header -->
+                <!-- tile body -->
+                <div class="tile-body">
+                    <div class="table-responsive">
+                        <table class="table table-custom" id="editable-usage">
+                            <thead>
+                                <tr class="odd gradeX">
+                                    <th>Nome do Perfil</th>
+                                    <th style="width: 50px; text-align: right; padding: 10px 0px 10px 0px;" class="no-sort">Opções</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="odd gradeX">
+                                        <td>@item.title</td>
+                                        <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions">
+                                        <a role="button" href="@Url.RouteUrl(new { controller = "admRiscos", action = "Edit", id = @item.id })" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a>
+                                        <a role="button" href="@Url.RouteUrl(new { controller = "admRiscos", action = "Delete", id = @item.id })" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                                @*<tr class="odd gradeX">
+                                    <td>Moderado sem renda variável</td>
+                                    <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions"><a role="button" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a><a role="button" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>Crescimento</td>
+                                    <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions"><a role="button" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a><a role="button" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>Moderado com renda variável</td>
+                                    <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions"><a role="button" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a><a role="button" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>Dinâmico</td>
+                                    <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions"><a role="button" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a><a role="button" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>Renda Crescimento</td>
+                                    <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions"><a role="button" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a><a role="button" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>Arrojado</td>
+                                    <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions"><a role="button" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a><a role="button" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                                <tr class="odd gradeX">
+                                    <td>Conservador</td>
+                                    <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions"><a role="button" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a><a role="button" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a></td>
+                                </tr>*@
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /tile body -->
+
+            </section>
+            <!-- /tile -->
+
+        </div>
+        <!-- /col -->
+    </div>
+    <!-- /row -->
+
+</div>
+
+

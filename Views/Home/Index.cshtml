@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="jumbotron">
+    <a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "home" })">home destaque 1</a><br/>
+    @*<a href="@Url.RouteUrl(new { controller = "cards", action = "Index" })">cards</a><br />
+    <a href="@Url.RouteUrl(new { controller = "admAssuntos", action = "Index" })">assuntos</a><br />
+    <a href="@Url.RouteUrl(new { controller = "txtDestaque", action = "Index", id = 3 })">txtDestaque</a><br />
+    <a href="@Url.RouteUrl(new { controller = "admChamadas", action = "Index", ordem = "principal" })">chamada principal</a><br />
+    <a href="@Url.RouteUrl(new { controller = "admChamadas", action = "Index", ordem = "primeira" })">primeira secundária</a><br />
+    <a href="@Url.RouteUrl(new { controller = "admChamadas", action = "Index", ordem = "segunda" })">segunda secundária</a><br />
+    <a href="@Url.RouteUrl(new { controller = "admRiscos", action = "Index" })">perfis de risco</a><br />
+    <a href="@Url.RouteUrl(new { controller = "admLaminas", action = "Index" })">lâminas</a><br />*@
+    <a href="@Url.RouteUrl(new { controller = "user", action = "Index" })">usuários</a><br />
+</div>

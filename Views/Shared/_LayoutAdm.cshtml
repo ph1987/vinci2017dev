@@ -1,0 +1,527 @@
+﻿@{
+    HttpCookie admVinciCookie = Request.Cookies["admVinci"];
+    if (admVinciCookie == null)
+    {
+        Response.Redirect(Url.Action("Index", "meueditor"));
+    }
+}
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+ <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Vinci Partners Admin</title>
+    <link rel="icon" type="image/ico" href="assets/images/favicon.ico" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ============================================
+    ================= Stylesheets ===================
+    ============================================= -->
+    <!-- vendor css files -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/vendor/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/vendor/animate.css")">
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/vendor/font-awesome.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/assets/js/vendor/animsition/css/animsition.min.css")">
+    <!-- project main css files -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/main.css")">
+    <!--/ stylesheets -->
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="@Url.Content("~/assets/js/vendor/file-upload/css/jquery.fileupload.css")">
+    <link rel="stylesheet" href="@Url.Content("~/assets/js/vendor/file-upload/css/jquery.fileupload-ui.css")">
+    <!-- CSS adjustments for browsers with JavaScript disabled -->
+    <noscript><link rel="stylesheet" href="@Url.Content("~/assets/js/vendor/file-upload/css/jquery.fileupload-noscript.css")"></noscript>
+    <noscript><link rel="stylesheet" href="@Url.Content("~/assets/js/vendor/file-upload/css/jquery.fileupload-ui-noscript.css")"></noscript>
+    <!-- ==========================================  
+    ================= Modernizr ===================
+    =========================================== -->
+    <script src="@Url.Content("~/assets/js/vendor/modernizr/modernizr-2.8.3-respond-1.4.2.min.js")"></script>
+
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>*@
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!--/ modernizr -->
+</head>
+
+<body id="minovate" class="appWrapper">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- ====================================================
+    ================= Application Content ===================
+    ===================================================== -->
+    <div id="wrap" class="animsition">
+        <!-- =================================================
+        ================= CONTROLS Content ===================
+        ================================================== -->
+        <div id="controls">
+            <!-- ================================================
+            ================= SIDEBAR Content ===================
+            ================================================= -->
+            <aside id="sidebar">
+                <div id="sidebar-wrap">
+                    <div class="panel-group slim-scroll" role="tablist">
+                        <div class="panel panel-default">
+                            <!-- <div class="panel-heading" role="tab">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#sidebarNav">
+                                        Navigation <i class="fa fa-angle-up"></i>
+                                    </a>
+                                </h4>
+                            </div> -->
+                            <div class="branding">
+                                <a class="brand" href="index.html"><img class="logo" src="@Url.Content("~/assets/images/logo-vinci-partners.png")"></a>
+                            </div>
+                            <div id="sidebarNav" class="panel-collapse collapse in" role="tabpanel">
+                                <div class="panel-body">
+                                    <!-- ===================================================
+                                    ================= NAVIGATION Content ===================
+                                    ==================================================== -->
+                                    <ul id="navigation">
+                                        @{
+                                            int idUser = 0;
+                                            string username = "";
+                                            try
+                                            {
+                                                idUser = Convert.ToInt32(admVinciCookie.Value);
+                                                try
+                                                {
+                                                    vinci_novo.Models.vinci_novoEntities db = new vinci_novo.Models.vinci_novoEntities();
+                                                    var user = db.users.Where(t => t.id == idUser).SingleOrDefault();
+                                                    username = user.name;
+                                                }
+                                                catch
+                                                {
+
+                                                }
+                                            }
+                                            catch
+                                            {
+                                                Response.Redirect(Url.Action("Index", "meueditor"));
+                                            }
+                                        }
+                                        <!-- <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li> -->
+                                        <li>
+                                            <p class="ola">Olá,</p>
+                                            <span class="user"><span class="name-user">@username</span> <a href="@Url.RouteUrl(new { controller = "user", action = "Logout" })" title="Logout"><i class="fa fa-sign-out"></i></a></span>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-home"></i> <span>HOME</span></a>
+                                            <ul>
+                                                <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "home" })" class="subitem"> 1º Destaque</a></li>
+                                                <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 2, page = "home" })" class="subitem"> 2º Destaque</a></li>
+                                                <li><a href="home-chamadas.html" class="subitem"> Chamadas</a></li>
+                                                <li><a href="@Url.RouteUrl(new { controller = "numbers", action = "Index", page = "home" })" class="subitem"> Nossos Números</a></li>
+                                                <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 3, page = "home" })" class="subitem"> 3º Destaque</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-university"></i> <span>EMPRESA</span></a>
+                                            <ul>
+                                                <li>
+                                                    <a class="subitem"> Institucional</a>
+                                                    <ul>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "empresa-institucional" })" class="subitem"> 1º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 2, page = "empresa-institucional" })" class="subitem"> 2º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "numbers", action = "Index", page = "empresa-institucional" })" class="subitem"> Nossos Números</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 3, page = "empresa-institucional" })" class="subitem"> 3º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "admTxt", action = "Index", page = "empresa-institucional-visao", title = "visao" })" class="subitem"> Visão</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "admTxt", action = "Index", page = "empresa-institucional-missao", title = "missao" })" class="subitem"> Missão</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "admValors", action = "Index" })" class="subitem"> Valores</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="subitem"> Governança</a>
+                                                    <ul>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "empresa-governanca" })" class="subitem"> 1º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "partners", action = "Index", page = "conselho" })" class="subitem">Conselho de Administração</a></li>
+                                                        <li><a @*href="governanca-comitês.html"*@ class="subitem">Comitês</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="subitem"> Sócios</a>
+                                                    <ul>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "empresa-socios" })" class="subitem"> 1º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 2, page = "empresa-socios" })" class="subitem"> 2º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "partners", action = "Index", page = "socios" })" class="subitem"> Cadastro de Sócios</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-diamond"></i> <span>NEGÓCIOS</span></a>
+                                            <ul>
+                                                <li>
+                                                    <a class="subitem"> Ações</a>
+                                                    <ul>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "negocios-acoes" })" class="subitem"> 1º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 2, page = "negocios-acoes" })" class="subitem"> 2º Destaque</a></li>
+                                                        <li><a href="acoes-tipos-de-fundos.html" class="subitem"> Tipos de Fundo</a></li>
+                                                        <li><a href="acoes-disclaimer.html" class="subitem">Disclaimer</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="subitem">Multimercado</a>
+                                                    <ul>
+                                                        <li><a @*href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "multimercado" })"*@ class="subitem">1º Destaque</a></li>
+                                                        <li><a href="multimercado-disclaimer.html" class="subitem">Disclaimer</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="subitem">Soluções de Investimento</a>
+                                                    <ul>
+                                                        <li><a @*href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "solucoes-investimento" })"*@ class="subitem">1º Destaque</a></li>
+                                                        <li><a href="solucoes-disclaimer.html" class="subitem">Disclaimer</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="subitem">Crédito</a>
+                                                    <ul>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "negocios-credito" })" class="subitem"> 1º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 2, page = "negocios-credito" })" class="subitem"> 2º Destaque</a></li>
+                                                        <li><a href="credito-tipos-de-fundos.html" class="subitem"> Tipos de Fundo</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "numbers", action = "Index", page = "negocios-credito" })" class="subitem"> Nossos Números</a></li>
+                                                        <li><a href="credito-disclaimer.html" class="subitem">Disclaimer</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="subitem">Real Estate</a>
+                                                    <ul>
+                                                        <li><a @*href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "real-estate" })"*@ class="subitem">1º Destaque</a></li>
+                                                        <li><a href="real-disclaimer.html" class="subitem">Disclaimer</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="subitem">Infraestrutura</a>
+                                                    <ul>
+                                                        <li><a @*href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "infra" })"*@ class="subitem">1º Destaque</a></li>
+                                                        <li><a href="infra-disclaimer.html" class="subitem">Disclaimer</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="subitem">Private Equity</a>
+                                                    <ul>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "negocios-privateEquity" })" class="subitem"> 1º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 2, page = "negocios-privateEquity" })" class="subitem"> 2º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 3, page = "negocios-privateEquity" })" class="subitem"> 3º Destaque</a></li>
+                                                        <li>
+                                                            <a class="subitem"> Fundos</a>
+                                                            <ul>
+                                                                <li><a href="private-fundos-texto.html" class="subitem"> Texto de Destaque</a></li>
+                                                                <li><a href="private-fundos-cadastro.html" class="subitem"> Cadastro de Fundos</a></li>
+                                                                <li><a href="private-fundos-empresa.html" class="subitem"> Cadastro de Empresas</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="private-disclaimer.html" class="subitem">Disclaimer</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="subitem"> Assessoria Financeira</a>
+                                                    <ul>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "negocios-assessoriaFinanceira" })" class="subitem"> 1º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "numbers", action = "Index", page = "negocios-assessoriaFinanceira" })" class="subitem"> Nossos Números</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 2, page = "negocios-assessoriaFinanceira" })" class="subitem"> 2º Destaque</a></li>
+                                                        <li>
+                                                            <a href="assessoria-operacoes.html" class="subitem"> Operações</a>
+                                                            <ul>
+                                                                <li><a href="assessoria-operacoes-texto.html" class="subitem"> Texto de Destaque</a></li>
+                                                                <li><a href="assessoria-operacoes-cadastro.html" class="subitem"> Cadastro de Operações</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="private-disclaimer.html" class="subitem">Disclaimer</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-database"></i> <span>IMPACTO</span></a>
+                                            <ul>
+                                                <li><a href="page.html" class="subitem"> Lorem ipsum</a></li>
+                                                <li><a href="page.html" class="subitem"> Lorem ipsum</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-newspaper-o"></i> <span>NOTÍCIAS</span></a>
+                                            <ul>
+                                                <li><a href="@Url.RouteUrl(new { controller = "admNews", action = "Index" })" class="subitem">Notícias Cadastradas</a></li>
+                                                <li><a href="@Url.RouteUrl(new { controller = "categories", action = "Index" })" class="subitem">Categorias</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-line-chart"></i> <span>VINCI DTVM</span></a>
+                                            <ul>
+                                                <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "dtvm" })" class="subitem"> 1º Destaque</a></li>
+                                                <li>
+                                                    <a href="dtvm-fundos.html" class="subitem"> Fundos de Investimento</a>
+                                                    <ul>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "dtvm-fundosDeInvestimento" })" class="subitem"> 1º Destaque</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 2, page = "dtvm-fundosDeInvestimento" })" class="subitem"> 2º Destaque</a></li>
+                                                        <li><a href="dtvm-fundos-cadastro.html" class="subitem"> Cadastro de Fundos</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="dtvm-rpps.html" class="subitem"> RPPS</a>
+                                                    <ul>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "highlights", action = "Index", order = 1, page = "dtvm-rpps" })" class="subitem"> 1º Destaque</a></li>
+                                                        <li><a href="dtvm-rpps-arquivos.html" class="subitem">Arquivos</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="subitem">Informações</a>
+                                                    <ul>
+                                                        <li><a href="dtvm-info.html" class="subitem">Arquivos Cadastrados</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="dtvm-comunicacao.html" class="subitem">Canal de Comunicação</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-lock"></i><span>PRIVACIDADE</span></a>
+                                            <ul>
+                                                <li><a href="page.html" class="subitem">Lorem ipsum</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-gavel"></i><span>TERMOS DE USO</span></a>
+                                            <ul>
+                                                <li><a href="page.html" class="subitem">Lorem ipsum</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-file-text-o"></i><span>CVM</span></a>
+                                            <ul>
+                                                <li><a href="page.html" class="subitem">Lorem ipsum</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-cubes"></i> <span>FAMÍLIAS DE FUNDOS</span></a>
+                                            <ul>
+                                                <li><a href="familias-de-fundos.html" class="subitem"> Adicionar Família</a></li>
+                                                <li><a href="@Url.RouteUrl(new { controller = "admRiscos", action = "Index" })" class="subitem"> Perfis de Risco</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a role="button" tabindex="0"><i class="fa fa-users"></i> <span>USUÁRIOS</span></a>
+                                            <ul>
+                                                <li><a href="@Url.RouteUrl(new { controller = "user", action = "Index" })" class="subitem"> Administrar Usuários</a></li>
+                                                <li><a href="@Url.RouteUrl(new { controller = "user", action = "Create" })" class="subitem"> Adicionar Novo Usuário</a></li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                    <!--/ NAVIGATION Content -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!--/ SIDEBAR Content -->
+
+        </div>
+        <!--/ CONTROLS Content -->
+        <!-- ====================================================
+        ================= CONTENT ===============================
+        ===================================================== -->
+        <section id="content">
+
+            
+                
+                @RenderBody() 
+
+            
+
+        </section>
+        <!--/ CONTENT -->
+
+    </div>
+    <!--/ Application Content -->
+    <!-- ============================================
+    ============== Vendor JavaScripts ===============
+    ============================================= -->
+    
+    @*<script>window.jQuery || document.write('<script src="@Url.Content("~/assets/js/vendor/jquery/jquery-1.11.2.min.js")"><\/script>')</script>*@
+
+    <script src="@Url.Content("~/assets/js/vendor/bootstrap/bootstrap.min.js")"></script>
+
+    <script src="@Url.Content("~/assets/js/vendor/jRespond/jRespond.min.js")"></script>
+
+    <script src="@Url.Content("~/assets/js/vendor/sparkline/jquery.sparkline.min.js")"></script>
+
+    <script src="@Url.Content("~/assets/js/vendor/slimscroll/jquery.slimscroll.min.js")"></script>
+
+    <script src="@Url.Content("~/assets/js/vendor/animsition/js/jquery.animsition.min.js")"></script>
+
+    <script src="@Url.Content("~/assets/js/vendor/screenfull/screenfull.min.js")"></script>
+
+    <script src="@Url.Content("~/assets/js/vendor/parsley/parsley.min.js")"></script>
+
+    <script src="@Url.Content("~/assets/js/vendor/form-wizard/jquery.bootstrap.wizard.min.js")"></script>
+
+
+    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+    <script src="@Url.Content("~/assets/js/vendor/file-upload/js/vendor/jquery.ui.widget.js")"></script>
+    <!-- The Templates plugin is included to render the upload/download listings -->
+    <script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+    <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+    <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+    <!-- The Canvas to Blob plugin is included for image resizing functionality -->
+    <script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+    <!-- blueimp Gallery script -->
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <script src="@Url.Content("~/assets/js/vendor/file-upload/js/jquery.iframe-transport.js")"></script>
+    <!-- The basic File Upload plugin -->
+    <script src="@Url.Content("~/assets/js/vendor/file-upload/js/jquery.fileupload.js")"></script>
+    <!-- The File Upload processing plugin -->
+    <script src="@Url.Content("~/assets/js/vendor/file-upload/js/jquery.fileupload-process.js")"></script>
+    <!-- The File Upload image preview & resize plugin -->
+    <script src="@Url.Content("~/assets/js/vendor/file-upload/js/jquery.fileupload-image.js")"></script>
+    <!-- The File Upload audio preview plugin -->
+    <script src="@Url.Content("~/assets/js/vendor/file-upload/js/jquery.fileupload-audio.js")"></script>
+    <!-- The File Upload video preview plugin -->
+    <script src="@Url.Content("~/assets/js/vendor/file-upload/js/jquery.fileupload-video.js")"></script>
+    <!-- The File Upload validation plugin -->
+    <script src="@Url.Content("~/assets/js/vendor/file-upload/js/jquery.fileupload-validate.js")"></script>
+    <!-- The File Upload user interface plugin -->
+    <script src="@Url.Content("~/assets/js/vendor/file-upload/js/jquery.fileupload-ui.js")"></script>
+    <!--/ vendor javascripts -->
+    <!-- ============================================
+    ============== Custom JavaScripts ===============
+    ============================================= -->
+    <script src="@Url.Content("~/assets/js/main.js")"></script>
+    <!--/ custom javascripts -->
+    <!-- ===============================================
+    ============== Page Specific Scripts ===============
+    ================================================ -->
+    <script>
+            $(window).load(function(){
+
+                $('#rootwizard').bootstrapWizard({
+                    onTabShow: function(tab, navigation, index) {
+                        var $total = navigation.find('li').length;
+                        var $current = index+1;
+
+                        // If it's the last tab then hide the last button and show the finish instead
+                        if($current >= $total) {
+                            $('#rootwizard').find('.pager .next').hide();
+                            $('#rootwizard').find('.pager .finish').show();
+                            $('#rootwizard').find('.pager .finish').removeClass('disabled');
+                        } else {
+                            $('#rootwizard').find('.pager .next').show();
+                            $('#rootwizard').find('.pager .finish').hide();
+                        }
+
+                    },
+
+                    onNext: function(tab, navigation, index) {
+
+                        var form = $('form[name="step'+ index +'"]');
+
+                        form.parsley().validate();
+
+                        if (!form.parsley().isValid()) {
+                            return false;
+                        }
+
+                    },
+
+                    onTabClick: function(tab, navigation, index) {
+
+                        var form = $('form[name="step'+ (index+1) +'"]');
+                        form.parsley().validate();
+
+                        if (!form.parsley().isValid()) {
+                            return false;
+                        }
+
+                    }
+
+                });
+        
+                $(function () {
+                    'use strict';
+
+                    // Initialize the jQuery File Upload widget:
+                    $('#fileupload').fileupload({
+                        // Uncomment the following to send cross-domain cookies:
+                        //xhrFields: {withCredentials: true},
+                        url: '@Url.Content("~/assets/js/vendor/file-upload/server/php/")'
+                    });
+
+                    // Enable iframe cross-domain access via redirect option:
+                    $('#fileupload').fileupload(
+                            'option',
+                            'redirect',
+                            window.location.href.replace(
+                                    /\/[^\/]*$/,
+                                    '@Url.Content("~/assets/js/vendor/file-upload/cors/result.html?%s")'
+                            )
+                    );
+
+                    if (window.location.hostname === 'blueimp.github.io') {
+                        // Demo settings:
+                        $('#fileupload').fileupload('option', {
+                            url: '//jquery-file-upload.appspot.com/',
+                            // Enable image resizing, except for Android and Opera,
+                            // which actually support image resizing, but fail to
+                            // send Blob objects via XHR requests:
+                            disableImageResize: /Android(?!.*Chrome)|Opera/
+                                    .test(window.navigator.userAgent),
+                            maxFileSize: 5000000,
+                            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+                        });
+                        // Upload server status check for browsers with CORS support:
+                        if ($.support.cors) {
+                            $.ajax({
+                                url: '//jquery-file-upload.appspot.com/',
+                                type: 'HEAD'
+                            }).fail(function () {
+                                $('<div class="alert alert-danger"/>')
+                                        .text('Upload server currently unavailable - ' +
+                                        new Date())
+                                        .appendTo('#fileupload');
+                            });
+                        }
+                    } else {
+                        // Load existing files:
+                        $('#fileupload').addClass('fileupload-processing');
+                        $.ajax({
+                            // Uncomment the following to send cross-domain cookies:
+                            //xhrFields: {withCredentials: true},
+                            url: $('#fileupload').fileupload('option', 'url'),
+                            dataType: 'json',
+                            context: $('#fileupload')[0]
+                        }).always(function () {
+                            $(this).removeClass('fileupload-processing');
+                        }).done(function (result) {
+                            $(this).fileupload('option', 'done')
+                                    .call(this, $.Event('done'), {result: result});
+                        });
+                    }
+
+                });
+
+            });
+    </script>
+    <!--/ Page Specific Scripts -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+    </script>
+
+</body>
+</html>

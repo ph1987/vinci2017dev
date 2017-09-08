@@ -1,0 +1,89 @@
+﻿@*@model IEnumerable<vinci_novo.Models.numbers>*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<div class="page page-tables-datatables">
+    <div class="pageheader">
+        <h2>Nossos Números <span>// @Request.QueryString["page"].ToUpper()</span></h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <section class="tile">
+                <div class="tile-header dvd dvd-btm">
+                    <h1 class="custom-font">@TempData["acaotitle"]</h1>
+                </div>
+                <div class="form-container">
+                    @using (Html.BeginForm("editTitle", "numbers", new { page = Request.QueryString["page"] }, FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+                    {
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label for="titulo">Título: </label>
+                                <input type="text" name="txt1" id="txt1" value="@ViewBag.txtTitle" class="form-control">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-cyan btn-ef btn-ef-5 btn-ef-5b mb-10">
+                            <i class="fa fa-floppy-o"></i>
+                            <span>Salvar</span>
+                        </button>
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <!-- col -->
+        <div class="col-md-12">
+            <section class="tile">
+                <div class="tile-header dvd dvd-btm">
+                    <h1 class="custom-font">@TempData["acao"]</h1>
+                    <ul class="controls">
+                        <li>
+                            <a role="button" tabindex="0" href="@Url.RouteUrl(new { controller = "numbers", action = "Create", page = Request.QueryString["page"] })"><i class="fa fa-plus mr-5"></i>Adicionar</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tile-body">
+                    @if (Model.Count > 0)
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-custom" id="editable-usage">
+                                <thead>
+                                    <tr class="odd gradeX">
+                                        <th>Prefixo</th>
+                                        <th>Big Numbers</th>
+                                        <th>Sufixo</th>
+                                        <th>Texto</th>
+                                        <th style="width: 50px; text-align: right; padding: 10px 0px 10px 0px;" class="no-sort">Opções</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="odd gradeX">
+                                            <td>@item.prefix</td>
+                                            <td>@item.bigNumber</td>
+                                            <td>@item.suffix</td>
+                                            <td>@item.txt</td>
+                                            <td style="text-align: right; padding: 10px 0px 10px 0px;" class="actions">
+                                                <a href="@Url.RouteUrl(new { controller = "numbers", action = "Edit", id = @item.id, page = Request.QueryString["page"] })" role="button" tabindex="0" class="text-primary text-uppercase text-strong text-sm mr-10"><i class="fa fa-pencil"></i></a>
+                                                <a href="@Url.RouteUrl(new { controller = "numbers", action = "Delete", id = @item.id, page = Request.QueryString["page"] })" role="button" tabindex="0" class="text-danger text-uppercase text-strong text-sm mr-10"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Não há nenhum número cadastrado. Clique em adicionar</p>
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,81 @@
+﻿@model vinci_novo.Models.numbers
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<div class="page page-forms-wizard">
+
+    <div class="pageheader">
+
+        <h2>Adicionar <span>// <a href="home-nossos-numeros.html">NOSSOS NÚMEROS</a> // @Request.QueryString["page"]</span></h2>
+
+    </div>
+
+    <!-- page content -->
+    <div class="pagecontent">
+        <div class="form-container">
+            @using (Html.BeginForm("Create", "numbers", new { page = Request.QueryString["page"] }, FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+            {
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="prefixo">Prefixo</label>
+                    <select name="prefix" id="prefixo" class="form-control mb-10">
+                        <option value="">Nenhum</option>
+                        <option value="US$">US$</option>
+                        <option value="EUR">EUR</option>
+                        <option value="R$">R$</option>
+                        <option value="+">+</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="bignumbers">Big Numbers </label>
+                    <div class="input-group mb-10">
+                        <span class="input-group-addon">
+                            <input type="checkbox" name="bigNumberBold" value="1">&ensp;<i class="fa fa-bold"></i>
+                        </span>
+                        <input type="text" name="bigNumber" class="form-control" id="bignumbers">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="sufixo">Sufixo </label>
+                    <div class="input-group mb-10">
+                        <span class="input-group-addon">
+                            <input type="checkbox" name="suffixBold" value="1">&ensp;<i class="fa fa-bold"></i>
+                        </span>
+                        <input type="text" name="suffix" class="form-control" id="sufixo">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="texto">Texto</label>
+                    <div class="input-group mb-10">
+                        <span class="input-group-addon">
+                            <input type="checkbox" name="txtBold" value="1">&ensp;<i class="fa fa-bold"></i>
+                        </span>
+                        <input type="text" name="txt" class="form-control" id="texto">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-cyan btn-ef btn-ef-5 btn-ef-5b mb-10">
+                <i class="fa fa-floppy-o"></i>
+                <span>Salvar</span>
+            </button>
+            }
+        </div>
+        <br />
+        <div class="text-center">
+            <img src="@Url.Content("~/assets/adm/bignumbers.png")" />
+        </div>
+    </div>
+    <!-- /page content -->
+
+</div>
+

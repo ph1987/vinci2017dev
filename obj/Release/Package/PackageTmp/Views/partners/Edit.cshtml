@@ -1,0 +1,71 @@
+﻿@model vinci_novo.Models.partners
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<div class="page page-forms-wizard">
+
+    <div class="pageheader">
+
+        @if (Request.QueryString["page"] == "conselho")
+        {
+            <h2>Editar <span>// <a href="governanca-conselho.html">CONSELHO DE ADMINISTRAÇÃO</a> // GOVERNANÇA // EMPRESA</span></h2>
+        }
+        else if (Request.QueryString["page"] == "socios")
+        {
+            <h2>Editar <span>// <a href="governanca-conselho.html">MEMBROS</a> // SÓCIOS // EMPRESA</span></h2>
+        }
+
+    </div>
+
+    <!-- page content -->
+    <div class="pagecontent">
+        <div class="form-container">
+            @using (Html.BeginForm("Edit", "partners", new { page = Request.QueryString["page"] }, FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+            {
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="nome">Nome:</label>
+                        <input type="text" name="txt1" id="nome" value="@Model.txt1" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="cargo">Cargo:</label>
+                        <input type="text" name="txt2" value="@Model.txt2" placeholder="campo com autocomplete" id="cargo" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="texto">Texto:</label>
+                        <textarea class="form-control" name="txt3" rows="8" id="texto" placeholder="Digite o texto aqui.">@Model.txt3</textarea>
+                    </div>
+                </div>
+                <div class="fileupload-buttonbar ">
+                    <span class="btn btn-slategray fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Adicionar/alterar imagem</span>
+                        <input type="file" name="file">
+                    </span>
+                </div>
+                <br>
+                if (Model.img != null)
+                {
+                    <img src="@Url.Content("~/uploads/" + @Model.img)" width="200" /><br>
+                    <a href="@Url.RouteUrl(new { controller = "partners", action = "DeleteImg", id = Model.id, page = Request.QueryString["page"] })" style="color:#ff0000; text-decoration:none;">Remover</a>
+                    <br><br>
+                }
+                <br>
+                <button type="submit" class="btn btn-cyan btn-ef btn-ef-5 btn-ef-5b mb-10">
+                    <i class="fa fa-floppy-o"></i>
+                    <span>Salvar</span>
+                </button>
+            }
+        </div>
+    </div>
+    <!-- /page content -->
+
+</div>
+
+

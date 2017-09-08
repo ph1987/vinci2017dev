@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vinci_novoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cards">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="nvarchar" MaxLength="250" />
+    <Property Name="tituloen" Type="nvarchar" MaxLength="250" />
+    <Property Name="link" Type="nvarchar" MaxLength="250" />
+    <Property Name="imagem" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ativo" Type="int" Nullable="false" />
+    <Property Name="created" Type="datetime" Nullable="false" />
+    <Property Name="updated" Type="datetime" Nullable="false" />
+    <Property Name="ordem" Type="int" />
+  </EntityType>
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="nvarchar" MaxLength="250" />
+    <Property Name="tituloen" Type="nvarchar" MaxLength="250" />
+    <Property Name="ativo" Type="int" Nullable="false" />
+    <Property Name="created" Type="datetime" Nullable="false" />
+    <Property Name="updated" Type="datetime" Nullable="false" />
+    <Property Name="ordem" Type="int" />
+  </EntityType>
+  <EntityType Name="families">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="perfil_id" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="350" />
+    <Property Name="regulamento" Type="nvarchar" MaxLength="250" />
+    <Property Name="factsheet" Type="nvarchar" MaxLength="250" />
+    <Property Name="lamina_info_essenciais" Type="nvarchar" MaxLength="250" />
+    <Property Name="prospecto" Type="nvarchar" MaxLength="250" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="files">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="filename" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="content_id" Type="int" Nullable="false" />
+    <Property Name="reference" Type="nvarchar" MaxLength="150" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="position" Type="int" />
+  </EntityType>
+  <EntityType Name="highlights">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="txt1" Type="text" />
+    <Property Name="txt1_en" Type="text" />
+    <Property Name="txt2" Type="text" />
+    <Property Name="txt2_en" Type="text" />
+    <Property Name="txt3" Type="text" />
+    <Property Name="txt3_en" Type="text" />
+    <Property Name="video" Type="text" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+    <Property Name="position" Type="int" />
+    <Property Name="page" Type="nvarchar" MaxLength="250" />
+    <Property Name="link" Type="text" />
+    <Property Name="status" Type="int" />
+    <Property Name="opt" Type="nvarchar" MaxLength="50" />
+    <Property Name="txt4" Type="text" />
+    <Property Name="txt4_en" Type="text" />
+  </EntityType>
+  <EntityType Name="institutions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="section" Type="nvarchar" MaxLength="150" />
+    <Property Name="text" Type="text" />
+    <Property Name="position" Type="int" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="news">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category" Type="nvarchar" MaxLength="350" />
+    <Property Name="txt1" Type="text" />
+    <Property Name="txt1_en" Type="text" />
+    <Property Name="txt2" Type="text" />
+    <Property Name="txt2_en" Type="text" />
+    <Property Name="videoUrl" Type="text" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="position" Type="int" />
+    <Property Name="highlight" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="numbers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prefix" Type="nvarchar" MaxLength="50" />
+    <Property Name="bigNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="suffix" Type="nvarchar" MaxLength="50" />
+    <Property Name="txt" Type="text" />
+    <Property Name="txt_en" Type="text" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+    <Property Name="position" Type="int" />
+    <Property Name="status" Type="int" />
+    <Property Name="page" Type="nvarchar" MaxLength="50" />
+    <Property Name="bigNumberBold" Type="int" />
+    <Property Name="suffixBold" Type="int" />
+    <Property Name="txtBold" Type="int" />
+  </EntityType>
+  <EntityType Name="partners">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="txt1" Type="text" />
+    <Property Name="txt1_en" Type="text" />
+    <Property Name="txt2" Type="text" />
+    <Property Name="txt2_en" Type="text" />
+    <Property Name="txt3" Type="text" />
+    <Property Name="txt3_en" Type="text" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="position" Type="int" />
+    <Property Name="page" Type="nvarchar" MaxLength="250" />
+    <Property Name="img" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="risks">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="titleen" Type="nvarchar" MaxLength="250" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+    <Property Name="position" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="txts">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="txt1" Type="text" />
+    <Property Name="txt1_en" Type="text" />
+    <Property Name="page" Type="nvarchar" MaxLength="150" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+    <Property Name="status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="valors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="txt1" Type="text" />
+    <Property Name="txt1_en" Type="text" />
+    <Property Name="status" Type="int" />
+    <Property Name="position" Type="int" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="vinci_novoModelStoreContainer">
+    <EntitySet Name="cards" EntityType="Self.cards" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="families" EntityType="Self.families" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="files" EntityType="Self.files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="highlights" EntityType="Self.highlights" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="institutions" EntityType="Self.institutions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="numbers" EntityType="Self.numbers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="partners" EntityType="Self.partners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="risks" EntityType="Self.risks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="txts" EntityType="Self.txts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="valors" EntityType="Self.valors" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

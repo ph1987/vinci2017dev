@@ -1,0 +1,57 @@
+﻿@model IEnumerable<vinci_novo.Models.assuntos>
+@{
+    ViewBag.Title = "assuntos | Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<span style="color:#00ff21;">@Html.ActionLink("Adicionar", "Create")</span><br /><br />
+@*
+    <div class="content-box">
+        <div class="content-box-header">
+            <h3>óculos <span style="margin-left:40px; background-color: Lime;">@TempData["acao"]</span></h3>
+            <span class="bot_verde">@Html.ActionLink("Adicionar", "Create")</span>
+            <div class="clear"></div>
+        </div> <!-- /content-box -->
+        <div class="content-box-content">
+            <div id="demo">
+*@
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+    <thead>
+        <tr>
+            <th>título</th>
+            @*<th>opções</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><a href="@Url.RouteUrl(new { controller = "admAssuntos", action = "Edit", id = @item.id })" title="Editar">@item.titulo</a></td>
+                @*<td>@String.Format("{0:g}", item.created)</td>
+                    <td>
+                        @if (item.ativo == 1)
+                        {
+                            <span class="icon ico_sim"></span>
+                        }
+                        else
+                        {
+                            <span class="icon ico_nao"></span>
+                        }
+                    </td>
+                    <td class="center">
+                        <ul>
+                            <li>
+                                <a href="@Url.RouteUrl(new { controller = "sliders", action = "Edit", id = @item.id })" title="Editar"><span class="icon ico_edit"></span></a>
+                                <a style="margin-left:10px;" href="#" title="Deletar" onclick="DeleteReg(@item.id, 'sliders')"><span class="icon ico_del"></span></a>
+                            </li>
+                        </ul>
+                    </td>
+                *@
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+

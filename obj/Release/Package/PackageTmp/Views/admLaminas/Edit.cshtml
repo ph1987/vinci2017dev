@@ -1,0 +1,119 @@
+﻿@model vinci_novo.Models.laminas
+@{
+    ViewBag.Title = "lâminas | Edit";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Edit", "admLaminas", FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>lâminas</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.titulo)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.titulo, new { @class = "medium-input" })
+            @Html.ValidationMessageFor(model => model.titulo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tituloen)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.tituloen, new { @class = "medium-input" })
+            @Html.ValidationMessageFor(model => model.tituloen)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tipo)
+        </div>
+        <div class="editor-field">
+            <select name="tipo">
+                <option value="0" @if (ViewBag.tipo == "0") { Write("selected='selected'"); }>Selecione o tipo</option>
+                <option value="Factsheet" @if (ViewBag.tipo == "Factsheet") { Write("selected='selected'"); }>Factsheet</option>
+                <option value="Prospecto" @if (ViewBag.tipo == "Prospecto") { Write("selected='selected'"); }>Prospecto</option>
+                <option value="Lâmina de Informações Essenciais" @if (ViewBag.tipo == "Lâmina de Informações Essenciais") { Write("selected='selected'"); }>Lâmina de Informações Essenciais</option>
+                <option value="Regulamento" @if (ViewBag.tipo == "Regulamento") { Write("selected='selected'"); }>Regulamento</option>
+            </select>
+        </div>
+
+        <div class="editor-label">
+            Perfil de risco
+        </div>
+        <div class="editor-field">
+            <select name="risco">
+                <option value="0" @if (ViewBag.perfil == 0) { Write("selected='selected'"); }>Selecione o perfil</option>
+                @foreach (var perfil in ViewBag.perfis)
+                {
+                    <option value="@perfil.id" @if (ViewBag.perfil == perfil.id) { Write("selected='selected'"); }>@perfil.titulo</option>
+                }
+            </select>
+        </div>
+
+        <div class="editor-label">
+            Páginas de inserção da lâmina
+        </div>
+        <div class="editor-field">
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "Quem Somos / A Empresa") { Write("checked='checked'"); } } name="paginas_insercao" id="paginas_insercao" value="Quem Somos / A Empresa" />Quem Somos / A Empresa<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "Quem Somos / Equipe") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="Quem Somos / Equipe" />Quem Somos / Equipe<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "O que fazemos / Ações") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="O que fazemos / Ações" />O que fazemos / Ações<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "O que fazemos / Multimercado") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="O que fazemos / Multimercado" />O que fazemos / Multimercado<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "O que fazemos / Soluções de Investimentos") { Write("checked='checked'"); } } name="paginas_insercao" id="paginas_insercao" value="O que fazemos / Soluções de Investimentos" />O que fazemos / Soluções de Investimentos<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "O que fazemos / Crédito") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="O que fazemos / Crédito" />O que fazemos / Crédito<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "O que fazemos / Real State") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="O que fazemos / Real State" />O que fazemos / Real State<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "O que fazemos / Infraestrutura") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="O que fazemos / Infraestrutura" />O que fazemos / Infraestrutura<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "O que fazemos / Private Equity") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="O que fazemos / Private Equity" />O que fazemos / Private Equity<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "O que fazemos / Assessoria Financeira") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="O que fazemos / Assessoria Financeira" />O que fazemos / Assessoria Financeira<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "Nossas Causas") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="Nossas Causas" />Nossas Causas<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "Notícias / Institucional") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="Notícias / Institucional" />Notícias / Institucional<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "Notícias / Mídia") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="Notícias / Mídia" />Notícias / Mídia<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "Vinci DTVM / Fundos de Investimento") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="Vinci DTVM / Fundos de Investimento" />Vinci DTVM / Fundos de Investimento<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "Vinci DTVM / Previdência Social - RPPS") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="Vinci DTVM / Previdência Social - RPPS" />Vinci DTVM / Previdência Social - RPPS<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "Vinci DTVM / Documentação") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="Vinci DTVM / Documentação" />Vinci DTVM / Documentação<br />
+            <input type="checkbox" @foreach (var pg in ViewBag.paginasDestaLamina) { if (pg.pagina == "Informações e Formulários CVM") { Write("checked='checked'"); } }name="paginas_insercao" id="paginas_insercao" value="Informações e Formulários CVM" />Informações e Formulários CVM<br />
+        </div>
+
+        <div class="editor-field">
+            @if (Model.ativo == 1)
+            {
+                <label>@Html.RadioButtonFor(model => model.ativo, 0)Não exibir no site</label>
+                <label>@Html.RadioButtonFor(model => model.ativo, 1, new { @checked = "checked" })Exibir no site</label>
+            }
+            else
+            {
+                <label>@Html.RadioButtonFor(model => model.ativo, 0, new { @checked = "checked" })Não exibir no site</label>
+                <label>@Html.RadioButtonFor(model => model.ativo, 1)Exibir no site</label>
+            }
+        </div>
+
+        <input type="file" name="file" id="file" />
+
+        @if (ViewBag.arqv.Count > 0)
+        {
+            <br />
+            <br />
+            <a href="@Url.RouteUrl(new { controller = "admLaminas", action = "RemoveArqv", id = @ViewBag.arqv[0].id })">remover arquivo</a><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href="@Url.Content("~/uploads/" +@ViewBag.arqv[0].arqNome)">@ViewBag.arqv[0].arqNome</a>
+            <br /><br />
+        }
+
+        <p>
+            <input type="submit" value="Adicionar" />
+        </p>
+
+    </fieldset>
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,170 @@
+﻿@model vinci_novo.Models.highlights
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+    bool exibeTxt1 = false;
+    bool exibeTxt2 = false;
+    bool exibeTxt3 = false;
+    bool exibeTxt4 = false;
+    bool exibeLink = false;
+    bool exibeImgVideo = false;
+
+    //home
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "home") { exibeTxt1 = true; exibeTxt2 = true; exibeLink = true; exibeImgVideo = true; }
+    if (Request.QueryString["order"] == "2" && Request.QueryString["page"] == "home") { exibeTxt1 = true; exibeTxt2 = true; exibeLink = true; exibeImgVideo = true; }
+    if (Request.QueryString["order"] == "3" && Request.QueryString["page"] == "home") { exibeTxt1 = true; exibeTxt2 = true; exibeTxt3 = true; exibeLink = true; }
+
+    //institucional
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "empresa-institucional") { exibeTxt1 = true; exibeTxt2 = true; exibeImgVideo = true; }
+    if (Request.QueryString["order"] == "2" && Request.QueryString["page"] == "empresa-institucional") { exibeTxt1 = true; exibeTxt2 = true; exibeTxt3 = true; }
+    if (Request.QueryString["order"] == "3" && Request.QueryString["page"] == "empresa-institucional") { exibeTxt1 = true; exibeTxt2 = true; exibeLink = true; exibeImgVideo = true; }
+
+    //governança
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "empresa-governanca") { exibeTxt1 = true; exibeImgVideo = true; }
+
+    //sócios
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "empresa-socios") { exibeTxt1 = true; exibeImgVideo = true; }
+    if (Request.QueryString["order"] == "2" && Request.QueryString["page"] == "empresa-socios") { exibeTxt1 = true; exibeTxt2 = true; }
+
+    //ações
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "negocios-acoes") { exibeTxt1 = true; exibeLink = true; exibeImgVideo = true; }
+    if (Request.QueryString["order"] == "2" && Request.QueryString["page"] == "negocios-acoes") { exibeTxt1 = true; exibeTxt2 = true; exibeLink = true; exibeImgVideo = true; }
+
+    //credito
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "negocios-credito") { exibeTxt1 = true; exibeImgVideo = true; }
+    if (Request.QueryString["order"] == "2" && Request.QueryString["page"] == "negocios-credito") { exibeTxt1 = true; exibeTxt2 = true; exibeLink = true; exibeImgVideo = true; }
+
+    //privateEquity
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "negocios-privateEquity") { exibeTxt1 = true; exibeTxt2 = true; exibeImgVideo = true; }
+    if (Request.QueryString["order"] == "2" && Request.QueryString["page"] == "negocios-privateEquity") { exibeTxt1 = true; exibeTxt2 = true; exibeLink = true; exibeImgVideo = true; }
+    if (Request.QueryString["order"] == "3" && Request.QueryString["page"] == "negocios-privateEquity") { exibeTxt1 = true; exibeTxt2 = true; exibeTxt3 = true; exibeLink = true; exibeImgVideo = true; }
+
+    //assessoria
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "negocios-assessoriaFinanceira") { exibeTxt1 = true; exibeImgVideo = true; }
+    if (Request.QueryString["order"] == "2" && Request.QueryString["page"] == "negocios-assessoriaFinanceira") { exibeTxt1 = true; exibeTxt2 = true; exibeTxt3 = true; exibeImgVideo = true; }
+
+    //dtvm
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "dtvm") { exibeTxt1 = true; exibeImgVideo = true; }
+
+    //fundosDeInvestimento
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "dtvm-fundosDeInvestimento") { exibeTxt1 = true; exibeTxt2 = true; exibeTxt3 = true; exibeTxt4 = true; }
+    if (Request.QueryString["order"] == "2" && Request.QueryString["page"] == "dtvm-fundosDeInvestimento") { exibeTxt1 = true; }
+
+    //rpps
+    if (Request.QueryString["order"] == "1" && Request.QueryString["page"] == "dtvm-rpps") { exibeTxt1 = true; }
+
+
+}
+
+<script>
+    $(document).ready(function () {
+        $('input:radio[name=customRadio]').change(function () {
+            if (this.value == 'video') {
+                $(".optdesctiption").text('Vídeo selecionado. Ao salvar, a imagem não irá mais aparecer.');
+            }
+            else if (this.value == 'imagem') {
+                $(".optdesctiption").text('Imagem selecionada. Ao salvar, o vídeo não irá mais aparecer.');
+            }
+        });
+    });
+</script>
+<div class="page page-forms-wizard">
+    <div class="pageheader">
+
+        <h2>@Request.QueryString["order"]º Destaque <span>// @Request.QueryString["page"].ToUpper().Replace("-", " // ")</span></h2>
+
+        <p>@TempData["acao"]</p>
+
+    </div>
+
+    <!-- page content -->
+    <div class="pagecontent">
+        <div class="form-container">
+            @using (Html.BeginForm("Index", "highlights", new { id = Model.id, order = Model.position, page = Model.page }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                if (exibeTxt1 == true)
+                {
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="texto1">Texto 1: </label>
+                            <input type="text" name="txt1" id="texto1" class="form-control" value="@Model.txt1">
+                        </div>
+                    </div>
+                }
+                if (exibeTxt2 == true)
+                {
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="texto2">Texto 2: </label>
+                            <input type="text" name="txt2" id="texto2" class="form-control" value="@Model.txt2">
+                        </div>
+                    </div>
+                }
+                if (exibeTxt3 == true)
+                {
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="texto3">Texto 3: </label>
+                            <input type="text" name="txt3" id="texto3" class="form-control" value="@Model.txt3">
+                        </div>
+                    </div>
+                }
+                if (exibeTxt4 == true)
+                {
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="texto4">Texto 4: </label>
+                            <input type="text" name="txt4" id="texto4" class="form-control" value="@Model.txt4">
+                        </div>
+                    </div>
+                }
+                if (exibeLink == true)
+                {
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="link">Link de direcionamento: </label>
+                            <input type="text" name="link" id="link" class="form-control" value="@Model.link">
+                        </div>
+                    </div>
+                }
+                if (exibeImgVideo)
+                {
+                    <p class="optdesctiption">Escolha entre vídeo ou imagem para exibir.</p>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="checkbox checkbox-custom checkbox-custom-sm">
+                                <input id="opt" name="customRadio" type="radio" value="video" @if (Model.opt == "video") { Write("checked='checked'"); }><i></i> Video
+                            </label>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="checkbox checkbox-custom checkbox-custom-sm">
+                                <input id="opt" name="customRadio" type="radio" value="imagem" @if (Model.opt == "imagem") { Write("checked='checked'"); }><i></i> Imagem
+                            </label>
+                        </div>
+                    </div>
+                    <div class="fileupload-buttonbar ">
+                        <span class="btn btn-slategray fileinput-button">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>Adicionar imagem</span>
+                            <input type="file" name="files" multiple>
+                        </span>
+                    </div>
+                    <br /><br />
+                    foreach (var i in ViewBag.imgs)
+                    {
+                        <img src="@Url.Content("~/uploads/" + @i.filename)" width="150" />
+                        <a href="@Url.RouteUrl(new { controller = "highlights", action = "DeleteImg", id = Model.id, order = Model.position, page = Model.page })" style="color:#ff0000; text-decoration:none;">Remover</a>
+                        <br /><br />
+                    }
+                    <br />
+                }
+                <br/>
+                <button type="submit" class="btn btn-cyan btn-ef btn-ef-5 btn-ef-5b mb-10">
+                    <i class="fa fa-floppy-o"></i>
+                    <span>Salvar</span>
+                </button>
+            }
+        </div>
+    </div>
+    <!-- /page content -->
+</div>

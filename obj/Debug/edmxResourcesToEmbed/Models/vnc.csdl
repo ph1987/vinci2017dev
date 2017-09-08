@@ -1,0 +1,848 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="vinciModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="vinciEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="banners_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="banners_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="subtitulo" Mode="In" Type="String" />
+      <Parameter Name="img" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="posicao" Mode="In" Type="Int32" />
+      <Parameter Name="subtitulo2" Mode="In" Type="String" />
+      <Parameter Name="img2" Mode="In" Type="String" />
+      <Parameter Name="link" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="info" Mode="In" Type="String" />
+      <Parameter Name="info2" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="banners_insere">
+      <Parameter Name="subtitulo" Mode="In" Type="String" />
+      <Parameter Name="img" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="posicao" Mode="In" Type="Int32" />
+      <Parameter Name="subtitulo2" Mode="In" Type="String" />
+      <Parameter Name="img2" Mode="In" Type="String" />
+      <Parameter Name="link" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="info" Mode="In" Type="String" />
+      <Parameter Name="info2" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="banners_lista" ReturnType="Collection(vinciModel.banners_lista_Result)" />
+    <FunctionImport Name="banners_lista_completa" ReturnType="Collection(vinciModel.banners_lista_completa_Result)" />
+    <FunctionImport Name="banners_lista1" ReturnType="Collection(vinciModel.banners_lista1_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="busca" ReturnType="Collection(vinciModel.busca_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+      <Parameter Name="parametro2" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="busca_en" ReturnType="Collection(vinciModel.busca_en_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+      <Parameter Name="parametro2" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="categoria_rpps_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="categoria_rpps_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="title" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="title_en" Mode="In" Type="String" />
+      <Parameter Name="doc_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="categoria_rpps_insere">
+      <Parameter Name="title" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="title_en" Mode="In" Type="String" />
+      <Parameter Name="doc_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="categoria_rpps_lista" ReturnType="Collection(vinciModel.categoria_rpps_lista_Result)" />
+    <FunctionImport Name="categoria_rpps_lista_edit" ReturnType="Collection(vinciModel.categoria_rpps_lista_edit_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="categorias_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="categorias_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="nome" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="categorias_informacoes_cvm_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="categorias_informacoes_cvm_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="title" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="title_en" Mode="In" Type="String" />
+      <Parameter Name="doc_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="categorias_informacoes_cvm_insere">
+      <Parameter Name="title" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="title_en" Mode="In" Type="String" />
+      <Parameter Name="doc_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="categorias_informacoes_cvm_lista" ReturnType="Collection(vinciModel.categorias_informacoes_cvm_lista_Result)" />
+    <FunctionImport Name="categorias_informacoes_cvm_lista_edit" ReturnType="Collection(vinciModel.categorias_informacoes_cvm_lista_edit_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="categorias_insere">
+      <Parameter Name="nome" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="categorias_lista" ReturnType="Collection(vinciModel.categorias_lista_Result)" />
+    <FunctionImport Name="categorias_lista_edit" ReturnType="Collection(vinciModel.categorias_lista_edit_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="contato_insere">
+      <Parameter Name="nome" Mode="In" Type="String" />
+      <Parameter Name="empresa" Mode="In" Type="String" />
+      <Parameter Name="tel" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="endereco" Mode="In" Type="String" />
+      <Parameter Name="cidade" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+      <Parameter Name="pais" Mode="In" Type="String" />
+      <Parameter Name="cep" Mode="In" Type="String" />
+      <Parameter Name="assunto" Mode="In" Type="String" />
+      <Parameter Name="mensagem" Mode="In" Type="String" />
+      <Parameter Name="datacriacao" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="contatos_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="categoria" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="texto_superior" Mode="In" Type="String" />
+      <Parameter Name="texto_superior2" Mode="In" Type="String" />
+      <Parameter Name="texto_inferior" Mode="In" Type="String" />
+      <Parameter Name="texto_inferior2" Mode="In" Type="String" />
+      <Parameter Name="texto_lateral" Mode="In" Type="String" />
+      <Parameter Name="texto_lateral2" Mode="In" Type="String" />
+      <Parameter Name="img" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="contatos_lista" ReturnType="Collection(vinciModel.contatos_lista_Result)">
+      <Parameter Name="categoria" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="contatos_lista1" ReturnType="Collection(vinciModel.contatos_lista1_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="conteudo_lateral_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="conteudo_lateral_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="link" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="texto2" Mode="In" Type="String" />
+      <Parameter Name="link_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="conteudo_lateral_insere">
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="link" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="created" Mode="In" Type="DateTime" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="texto2" Mode="In" Type="String" />
+      <Parameter Name="link_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="conteudo_lateral_lista" ReturnType="Collection(String)" />
+    <FunctionImport Name="conteudo_lateral_lista_completa" ReturnType="Collection(vinciModel.conteudo_lateral_lista_completa_Result)" />
+    <FunctionImport Name="conteudo_lateral_lista1" ReturnType="Collection(vinciModel.conteudo_lateral_lista1_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="conteudo_lateral_random" ReturnType="Collection(vinciModel.conteudo_lateral_random_Result)" />
+    <FunctionImport Name="docs_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="docs_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="doc1" Mode="In" Type="String" />
+      <Parameter Name="doc2" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="conteudo_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="docs_insere">
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="doc1" Mode="In" Type="String" />
+      <Parameter Name="doc2" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="conteudo_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="docs_lista" ReturnType="Collection(vinciModel.docs_lista_Result)">
+      <Parameter Name="conteudo_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="docs_lista1" ReturnType="Collection(vinciModel.docs_lista1_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="empresa_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="empresa_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="categoria" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="texto2" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="img" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="doc2" Mode="In" Type="String" />
+      <Parameter Name="data" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="empresa_editaimg">
+      <Parameter Name="categoria" Mode="In" Type="String" />
+      <Parameter Name="img" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="empresa_insere">
+      <Parameter Name="categoria" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="texto2" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="doc2" Mode="In" Type="String" />
+      <Parameter Name="img" Mode="In" Type="String" />
+      <Parameter Name="data" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="empresa_lista" ReturnType="Collection(vinciModel.empresa_lista_Result)">
+      <Parameter Name="categoria" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="empresa_lista1" ReturnType="Collection(vinciModel.empresa_lista1_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="equipe_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="equipe_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="categoria" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="texto2" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="ordem" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="equipe_editaimg">
+      <Parameter Name="categoria" Mode="In" Type="String" />
+      <Parameter Name="imgtopo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="equipe_insere">
+      <Parameter Name="categoria" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="texto2" Mode="In" Type="String" />
+      <Parameter Name="ordem" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="equipe_lista" ReturnType="Collection(vinciModel.equipe_lista_Result)">
+      <Parameter Name="categoria" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="equipe_lista_ativos" ReturnType="Collection(vinciModel.equipe_lista_ativos_Result)">
+      <Parameter Name="categoria" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="equipe_lista1" ReturnType="Collection(vinciModel.equipe_lista1_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fundos_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fundos_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="nome" Mode="In" Type="String" />
+      <Parameter Name="perfil" Mode="In" Type="String" />
+      <Parameter Name="factsheet" Mode="In" Type="String" />
+      <Parameter Name="prospecto" Mode="In" Type="String" />
+      <Parameter Name="regulamento" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="subtitle" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fundos_insere">
+      <Parameter Name="nome" Mode="In" Type="String" />
+      <Parameter Name="perfil" Mode="In" Type="String" />
+      <Parameter Name="factsheet" Mode="In" Type="String" />
+      <Parameter Name="prospecto" Mode="In" Type="String" />
+      <Parameter Name="regulamento" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="categoria_id" Mode="In" Type="Int32" />
+      <Parameter Name="subtitle" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="fundos_lista" ReturnType="Collection(vinciModel.fundos_lista_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="fundos_lista_all" ReturnType="Collection(vinciModel.fundos_lista_all_Result)" />
+    <FunctionImport Name="informacoes_cvm_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="informacoes_cvm_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="title" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="title_en" Mode="In" Type="String" />
+      <Parameter Name="doc_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="informacoes_cvm_insere">
+      <Parameter Name="categorias_informacoes_cvm_id" Mode="In" Type="Int32" />
+      <Parameter Name="title" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="title_en" Mode="In" Type="String" />
+      <Parameter Name="doc_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="informacoes_cvm_lista" ReturnType="Collection(vinciModel.informacoes_cvm_lista_Result)" />
+    <FunctionImport Name="informacoes_cvm_lista_edit" ReturnType="Collection(vinciModel.informacoes_cvm_lista_edit_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="informacoes_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="informacoes_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="pdf" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="informacoes_insere">
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="pdf" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="informacoes_lista" ReturnType="Collection(vinciModel.informacoes_lista_Result)" />
+    <FunctionImport Name="informacoes_lista1" ReturnType="Collection(vinciModel.informacoes_lista1_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="lamina_doc_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="doc2" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="lamina_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="doc2" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="negocios_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="categoria" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="texto2" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="img" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="doc2" Mode="In" Type="String" />
+      <Parameter Name="rodape" Mode="In" Type="String" />
+      <Parameter Name="rodape_en" Mode="In" Type="String" />
+      <Parameter Name="doc_rodape" Mode="In" Type="String" />
+      <Parameter Name="doc_rodape_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="negocios_lista" ReturnType="Collection(vinciModel.negocios_lista_Result)">
+      <Parameter Name="categoria" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="negocios_lista1" ReturnType="Collection(vinciModel.negocios_lista1_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="parceiros_operacoes_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="parceiros_operacoes_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="img" Mode="In" Type="String" />
+      <Parameter Name="img2" Mode="In" Type="String" />
+      <Parameter Name="link" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="subtitulo" Mode="In" Type="String" />
+      <Parameter Name="subtitulo2" Mode="In" Type="String" />
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="texto2" Mode="In" Type="String" />
+      <Parameter Name="categoria" Mode="In" Type="String" />
+      <Parameter Name="data" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="legenda" Mode="In" Type="String" />
+      <Parameter Name="url" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="parceiros_operacoes_insere">
+      <Parameter Name="img" Mode="In" Type="String" />
+      <Parameter Name="img2" Mode="In" Type="String" />
+      <Parameter Name="link" Mode="In" Type="String" />
+      <Parameter Name="titulo" Mode="In" Type="String" />
+      <Parameter Name="titulo2" Mode="In" Type="String" />
+      <Parameter Name="subtitulo" Mode="In" Type="String" />
+      <Parameter Name="subtitulo2" Mode="In" Type="String" />
+      <Parameter Name="texto" Mode="In" Type="String" />
+      <Parameter Name="texto2" Mode="In" Type="String" />
+      <Parameter Name="categoria" Mode="In" Type="String" />
+      <Parameter Name="data" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="legenda" Mode="In" Type="String" />
+      <Parameter Name="url" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="parceiros_operacoes_lista" ReturnType="Collection(vinciModel.parceiros_operacoes_lista_Result)">
+      <Parameter Name="categoria" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="parceiros_operacoes_lista1" ReturnType="Collection(vinciModel.parceiros_operacoes_lista1_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="relacionamentos_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="relacionamentos_insere">
+      <Parameter Name="link" Mode="In" Type="String" />
+      <Parameter Name="conteudo_id" Mode="In" Type="Int32" />
+      <Parameter Name="secao" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="relacionamentos_lista" ReturnType="Collection(vinciModel.relacionamentos_lista_Result)">
+      <Parameter Name="conteudo_id" Mode="In" Type="Int32" />
+      <Parameter Name="secao" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="rpps_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="rpps_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="title" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="title_en" Mode="In" Type="String" />
+      <Parameter Name="doc_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="rpps_insere">
+      <Parameter Name="categoria_rpps_id" Mode="In" Type="Int32" />
+      <Parameter Name="title" Mode="In" Type="String" />
+      <Parameter Name="doc" Mode="In" Type="String" />
+      <Parameter Name="title_en" Mode="In" Type="String" />
+      <Parameter Name="doc_en" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="rpps_lista" ReturnType="Collection(vinciModel.rpps_lista_Result)" />
+    <FunctionImport Name="rpps_lista_edit" ReturnType="Collection(vinciModel.rpps_lista_edit_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usuario_deleta">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usuario_edita">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="nome" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usuario_edita_senha">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usuario_insere">
+      <Parameter Name="nome" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usuario_insere_lamina">
+      <Parameter Name="nome" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="ativo" Mode="In" Type="Int32" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="tipo_usuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usuario_lista" ReturnType="Collection(vinciModel.usuario_lista_Result)" />
+    <FunctionImport Name="usuario_lista_login" ReturnType="Collection(vinciModel.usuario_lista_login_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usuario_lista1" ReturnType="Collection(vinciModel.usuario_lista1_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="banners_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="subtitulo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ativo" Nullable="true" />
+    <Property Type="Int32" Name="posicao" Nullable="true" />
+    <Property Type="String" Name="subtitulo2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="img2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="info" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="info2" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="banners_lista_completa_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="subtitulo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ativo" Nullable="true" />
+    <Property Type="Int32" Name="posicao" Nullable="true" />
+    <Property Type="String" Name="subtitulo2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="img2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="info" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="info2" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="banners_lista1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="subtitulo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ativo" Nullable="true" />
+    <Property Type="Int32" Name="posicao" Nullable="true" />
+    <Property Type="String" Name="subtitulo2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="img2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="info" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="info2" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="busca_Result">
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="control" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="400" />
+  </ComplexType>
+  <ComplexType Name="busca_en_Result">
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="control" Nullable="false" MaxLength="7" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="400" />
+  </ComplexType>
+  <ComplexType Name="categoria_rpps_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="true" />
+    <Property Type="String" Name="doc" Nullable="true" />
+    <Property Type="String" Name="title_en" Nullable="true" />
+    <Property Type="String" Name="doc_en" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="categoria_rpps_lista_edit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="true" />
+    <Property Type="String" Name="doc" Nullable="true" />
+    <Property Type="String" Name="title_en" Nullable="true" />
+    <Property Type="String" Name="doc_en" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="categorias_informacoes_cvm_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="doc" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="title_en" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="doc_en" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="categorias_informacoes_cvm_lista_edit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="doc" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="title_en" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="doc_en" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="categorias_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nome" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="categorias_lista_edit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nome" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="contatos_lista_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="titulo" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="texto_superior" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="texto_superior2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="texto_inferior" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="texto_inferior2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="texto_lateral" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="texto_lateral2" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="contatos_lista1_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="titulo" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="texto_superior" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="texto_superior2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="texto_inferior" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="texto_inferior2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="texto_lateral" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="texto_lateral2" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="conteudo_lateral_lista_completa_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="link" Nullable="false" MaxLength="400" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="DateTime" Name="created" Nullable="true" Precision="23" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="link_en" Nullable="true" MaxLength="400" />
+  </ComplexType>
+  <ComplexType Name="conteudo_lateral_lista1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="link" Nullable="false" MaxLength="400" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="DateTime" Name="created" Nullable="true" Precision="23" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="link_en" Nullable="true" MaxLength="400" />
+  </ComplexType>
+  <ComplexType Name="conteudo_lateral_random_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="link" Nullable="false" MaxLength="400" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="link_en" Nullable="true" MaxLength="400" />
+    <Property Type="Int64" Name="rn" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="docs_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="doc1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="doc2" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="Int32" Name="conteudo_id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="docs_lista1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="300" />
+    <Property Type="String" Name="doc1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="doc2" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="Int32" Name="conteudo_id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="empresa_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="doc" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="doc2" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="data" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="empresa_lista1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="doc" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="doc2" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="data" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="equipe_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="imgtopo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ordem" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="equipe_lista_ativos_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="imgtopo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ordem" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="equipe_lista1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="imgtopo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ordem" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="fundos_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nome" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="perfil" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="factsheet" Nullable="true" />
+    <Property Type="String" Name="prospecto" Nullable="true" />
+    <Property Type="String" Name="regulamento" Nullable="true" />
+    <Property Type="Int32" Name="categoria_id" Nullable="false" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="subtitle" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="fundos_lista_all_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nome" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="perfil" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="factsheet" Nullable="true" />
+    <Property Type="String" Name="prospecto" Nullable="true" />
+    <Property Type="String" Name="regulamento" Nullable="true" />
+    <Property Type="Int32" Name="categoria_id" Nullable="false" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="subtitle" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="informacoes_cvm_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="categorias_informacoes_cvm_id" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="doc" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="title_en" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="doc_en" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="informacoes_cvm_lista_edit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="categorias_informacoes_cvm_id" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="doc" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="title_en" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="doc_en" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="informacoes_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="pdf" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="informacoes_lista1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="pdf" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="negocios_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="doc" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="doc2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rodape" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="rodape_en" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="doc_rodape" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="doc_rodape_en" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="negocios_lista1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="400" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="doc" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="doc2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="rodape" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="rodape_en" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="doc_rodape" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="doc_rodape_en" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="parceiros_operacoes_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="img2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="subtitulo" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="subtitulo2" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="data" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="legenda" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="url" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="parceiros_operacoes_lista1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="img" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="img2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="titulo" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="titulo2" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="subtitulo" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="subtitulo2" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="texto" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="texto2" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="categoria" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="data" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="legenda" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="url" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="relacionamentos_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="conteudo_id" Nullable="false" />
+    <Property Type="String" Name="secao" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="link" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="rpps_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="categoria_rpps_id" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="true" />
+    <Property Type="String" Name="doc" Nullable="true" />
+    <Property Type="String" Name="title_en" Nullable="true" />
+    <Property Type="String" Name="doc_en" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="rpps_lista_edit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="categoria_rpps_id" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="true" />
+    <Property Type="String" Name="doc" Nullable="true" />
+    <Property Type="String" Name="title_en" Nullable="true" />
+    <Property Type="String" Name="doc_en" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="usuario_lista_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nome" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="tipo_usuario" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="usuario_lista_login_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nome" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="tipo_usuario" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="usuario_lista1_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nome" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="ativo" Nullable="false" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="tipo_usuario" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>
